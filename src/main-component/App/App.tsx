@@ -108,11 +108,6 @@ const App: React.FC = () => {
   // ======================
   return (
     <div className="App">
-      {/* TAILWIND TEST - Remove after verification */}
-      <div className="bg-red-500 text-yellow-400 p-8 text-2xl rotate-3">
-        TAILWIND TEST
-      </div>
-      
       <ErrorBoundary>
         <AllRoute />
       </ErrorBoundary>
