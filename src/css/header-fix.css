@@ -1,0 +1,48 @@
+/* Header visibility fix - ensures header elements render correctly with Tailwind */
+/* This file is imported after tailwind.css but before main.css to ensure proper cascade */
+
+/* Ensure header area is visible and positioned correctly */
+#xb-header-area,
+.header-area {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 999 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure header navigation menu is visible on desktop */
+.main-menu__wrap {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+.main-menu {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+.main-menu > ul {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+.main-menu > ul > li {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.main-menu > ul > li > a {
+  display: inline-block !important;
+  visibility: visible !important;
+}
+
+/* Hide menu on mobile as per original design */
+@media (max-width: 991px) {
+  .main-menu__wrap {
+    display: none !important;
+  }
+}
+

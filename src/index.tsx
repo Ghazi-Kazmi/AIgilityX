@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 // Tailwind CSS (must be first so legacy CSS can override if needed)
 import "./tailwind.css";
+// Header fix - ensures header renders correctly with Tailwind
+import "./css/header-fix.css";
 // Legacy/third-party CSS imports
 import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
