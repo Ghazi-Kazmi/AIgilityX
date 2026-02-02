@@ -17,6 +17,8 @@ img {
   object-fit: cover;
   object-position: center;
   display: block;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Images inside .img-hove-effect should fill the container */
@@ -26,17 +28,24 @@ img {
   height: 100%;
   object-fit: cover;
   display: block;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Containers should only have overflow and positioning, not forced dimensions */
+/* But prevent them from expanding beyond their intended size */
 .xb-img {
   overflow: hidden;
   position: relative;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .img-hove-effect {
   overflow: hidden;
   position: relative;
+  max-width: 100%;
+  /* Don't set height - let it be determined by content or explicit CSS */
 }
 
 /* Project image containers - only constrain images, not containers */
@@ -52,10 +61,13 @@ img {
   display: block;
 }
 
-/* Single item image containers */
+/* Single item image containers - must have constrained dimensions */
 .single-item-image {
   overflow: hidden;
   position: relative;
+  /* Prevent container from expanding - use flex-basis or max-width */
+  max-width: 100%;
+  flex: 0 1 auto; /* Don't grow, can shrink, auto basis */
 }
 
 .single-item-image img {
@@ -63,6 +75,16 @@ img {
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Prevent image from expanding container */
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Service gallery containers should share space equally */
+.service-gallary .single-item-image {
+  flex: 1 1 0; /* Equal flex basis, can grow/shrink */
+  min-width: 0; /* Allow shrinking below content size */
+  max-width: 100%;
 }
 
 /* Image items in general */
@@ -116,6 +138,30 @@ h3 img {
   max-width: 100%;
   height: auto;
   max-height: 1.2em; /* Prevent huge inline images */
+}
+
+/* About top image containers - prevent expansion */
+.about-top-image > div {
+  max-width: 100%;
+  flex: 0 1 auto;
+  min-width: 0;
+}
+
+.about-top-image .img-hove-effect {
+  max-width: 100%;
+  width: auto; /* Let it size naturally based on content or explicit CSS */
+}
+
+/* Prevent all image containers from expanding beyond their parent */
+[class*="img"],
+[class*="image"],
+.xb-img,
+.img-hove-effect,
+.single-item-image,
+.xb-project-img,
+.xb-image-item {
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Responsive image containers */
