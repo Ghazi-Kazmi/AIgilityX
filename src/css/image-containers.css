@@ -1,8 +1,8 @@
 /* Image Container Fixes - Ensures images adapt to container size, not vice versa */
 
 /* Base image rule - images should respect container dimensions */
-/* But exclude form elements, icons, and decorative images that should maintain their size */
-img:not(.xb-item--icon img):not(.xb-contact-form img):not(form img):not(.xb-input-field img):not(.xb-select-field img):not(.xb-select-file img):not(.xb-massage-field img):not(.xb-icon img):not(.form-btn img) {
+/* But exclude form elements, icons, footer icons, and decorative images that should maintain their size */
+img:not(.xb-item--icon img):not(.xb-contact-form img):not(form img):not(.xb-input-field img):not(.xb-select-field img):not(.xb-select-file img):not(.xb-massage-field img):not(.xb-icon img):not(.form-btn img):not(footer img):not(.footer img):not(.xb-footer img) {
   max-width: 100%;
   height: auto;
   display: block;
@@ -226,6 +226,25 @@ select {
   object-fit: none !important;
   display: inline-block !important;
   position: absolute !important;
+}
+
+/* Footer icons should maintain their original size */
+footer img,
+.footer img,
+.xb-footer img,
+.xb-footer-item img,
+.xb-footer-content img,
+.xb-footer-social img,
+.xb-footer-contact img,
+.xb-footer-address img,
+.xb-footer-phone img,
+.xb-footer-email img {
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: none !important;
+  display: inline-block !important;
 }
 
 /* Responsive image containers */
