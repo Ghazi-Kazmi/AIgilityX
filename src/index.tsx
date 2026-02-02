@@ -7,6 +7,8 @@ import "./tailwind.css";
 import "./css/header-fix.css";
 // Image container fixes - ensures images adapt to container size
 import "./css/image-containers.css";
+// Mobile menu fixes - improved responsive design and hamburger button
+import "./css/mobile-menu-fix.css";
 // Legacy/third-party CSS imports
 import "bootstrap/dist/css/bootstrap.min.css";
 import "swiper/css";
