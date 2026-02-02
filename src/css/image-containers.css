@@ -252,6 +252,31 @@ footer img,
   position: static !important;
 }
 
+/* Brand / partner logos should not render at their intrinsic (often huge) pixel size */
+.xb-brand-item img,
+.brand-marquee img,
+.ac-brand-inner .xb-brand-item img,
+.partner-grids img,
+.partners-slider img {
+  width: auto !important;
+  height: auto !important;
+  max-height: 56px; /* keeps logos visually consistent */
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 767px) {
+  .xb-brand-item img,
+  .brand-marquee img,
+  .ac-brand-inner .xb-brand-item img,
+  .partner-grids img,
+  .partners-slider img {
+    max-height: 44px;
+    max-width: 140px;
+  }
+}
+
 /* Responsive image containers */
 @media (max-width: 991px) {
   .xb-img img,
