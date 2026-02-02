@@ -2,7 +2,7 @@
 
 /* Base image rule - images should respect container dimensions */
 /* But exclude form elements, icons, footer icons, and decorative images that should maintain their size */
-img:not(.xb-item--icon img):not(.xb-contact-form img):not(form img):not(.xb-input-field img):not(.xb-select-field img):not(.xb-select-file img):not(.xb-massage-field img):not(.xb-icon img):not(.form-btn img):not(footer img):not(.footer img):not(.xb-footer img) {
+img:not(.xb-item--icon img):not(.xb-contact-form img):not(form img):not(.xb-input-field img):not(.xb-select-field img):not(.xb-select-file img):not(.xb-massage-field img):not(.xb-icon img):not(.form-btn img):not(footer img):not(.footer img):not(.xb-footer img):not(.contact-item img):not(.xb-footer-bottom img):not(.xb-footer-heading img) {
   max-width: 100%;
   height: auto;
   display: block;
@@ -238,13 +238,18 @@ footer img,
 .xb-footer-contact img,
 .xb-footer-address img,
 .xb-footer-phone img,
-.xb-footer-email img {
+.xb-footer-email img,
+.xb-footer-bottom img,
+.contact-item img,
+.xb-footer-heading img,
+.xb-footer-heading .mail img {
   width: auto !important;
   height: auto !important;
   max-width: none !important;
   max-height: none !important;
   object-fit: none !important;
   display: inline-block !important;
+  position: static !important;
 }
 
 /* Responsive image containers */
