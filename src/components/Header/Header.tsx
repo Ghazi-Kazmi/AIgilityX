@@ -94,18 +94,6 @@ const Header: React.FC = () => {
     margin: '0 auto',
   };
 
-  const closeButtonStyle: React.CSSProperties = {
-    background: 'none',
-    border: 'none',
-    fontSize: '1.5rem',
-    cursor: 'pointer',
-    padding: '0.5rem',
-    color: '#333',
-    position: 'absolute',
-    right: '1rem',
-    top: '1rem',
-    zIndex: 10,
-  };
 
   return (
     <header
@@ -236,15 +224,6 @@ const Header: React.FC = () => {
         <div className="xb-header-wrap">
           <div className={`xb-header-menu ${mobileActive ? "active" : ""}`}>
             <div className="xb-header-menu-scroll">
-              <button
-                className="xb-menu-close xb-hide-xl xb-close"
-                onClick={closeMobileMenu}
-                aria-label="Close mobile menu"
-                style={closeButtonStyle}
-              >
-                <i className="far fa-times"></i>
-              </button>
-
               <div className="xb-logo-mobile xb-hide-xl" style={mobileLogoContainerStyle}>
                 <Link to="/" rel="home" onClick={closeMobileMenu}>
                   <img 

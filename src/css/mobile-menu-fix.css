@@ -229,32 +229,7 @@
   padding-left: 10px !important;
 }
 
-/* Close button improvements */
-.xb-menu-close {
-  position: absolute !important;
-  top: 20px !important;
-  right: 20px !important;
-  width: 40px !important;
-  height: 40px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
-  border-radius: 8px !important;
-  color: rgba(255, 255, 255, 0.9) !important;
-  font-size: 20px !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  z-index: 10 !important;
-}
-
-.xb-menu-close:hover {
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-color: rgba(255, 255, 255, 0.4) !important;
-  transform: rotate(90deg) scale(1.1);
-  color: #fff !important;
-}
+/* Close button removed - hamburger button and backdrop click handle closing */
 
 /* Mobile menu backdrop */
 .xb-header-menu-backdrop {
@@ -300,13 +275,6 @@
     font-size: 13px !important;
   }
   
-  .xb-menu-close {
-    top: 15px !important;
-    right: 15px !important;
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 18px !important;
-  }
 }
 
 /* Smooth scroll for mobile menu */
