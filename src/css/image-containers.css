@@ -126,14 +126,6 @@ img:not(.xb-item--icon img):not(.xb-contact-form img):not(form img):not(.xb-inpu
   display: block;
 }
 
-/* Background images should not affect layout */
-.about-bg img,
-.bg_img img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
 /* Icon images - maintain aspect ratio but fit container */
 .xb-item--icon img,
 .xb-item--icon {
