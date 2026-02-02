@@ -224,6 +224,14 @@ const Header: React.FC = () => {
         <div className="xb-header-wrap">
           <div className={`xb-header-menu ${mobileActive ? "active" : ""}`}>
             <div className="xb-header-menu-scroll">
+              <button
+                className="xb-menu-close xb-hide-xl xb-close"
+                onClick={closeMobileMenu}
+                aria-label="Close mobile menu"
+              >
+                <i className="far fa-times"></i>
+              </button>
+
               <div className="xb-logo-mobile xb-hide-xl" style={mobileLogoContainerStyle}>
                 <Link to="/" rel="home" onClick={closeMobileMenu}>
                   <img 
