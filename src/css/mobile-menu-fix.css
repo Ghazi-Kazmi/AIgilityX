@@ -229,31 +229,33 @@
   padding-left: 10px !important;
 }
 
-/* Close button - small and subtle */
+/* Close button - very small and subtle */
 .xb-menu-close {
   position: absolute !important;
-  top: 15px !important;
-  right: 15px !important;
-  width: 28px !important;
-  height: 28px !important;
+  top: 12px !important;
+  right: 12px !important;
+  width: 20px !important;
+  height: 20px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
   background: rgba(255, 255, 255, 0.08) !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  border-radius: 6px !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  font-size: 14px !important;
+  border-radius: 4px !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 10px !important;
   cursor: pointer !important;
   transition: all 0.2s ease !important;
   z-index: 10 !important;
   padding: 0 !important;
+  min-width: 20px !important;
+  min-height: 20px !important;
 }
 
 .xb-menu-close:hover {
-  background: rgba(255, 255, 255, 0.15) !important;
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  color: rgba(255, 255, 255, 0.9) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
   transform: scale(1.1);
 }
 
@@ -262,15 +264,32 @@
 }
 
 .xb-menu-close i {
-  font-size: 12px !important;
+  font-size: 10px !important;
   line-height: 1 !important;
 }
 
-/* Mobile menu backdrop */
+/* Mobile menu backdrop - ensure it's clickable and visible */
 .xb-header-menu-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
   background-color: rgba(0, 0, 0, 0.75) !important;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px) !important;
+  -webkit-backdrop-filter: blur(4px) !important;
+  z-index: 998 !important;
+  cursor: pointer !important;
+  /* Ensure backdrop is visible when menu is active */
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+/* Show backdrop when menu is active */
+.xb-header-menu.active ~ .xb-header-menu-backdrop {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 /* Responsive adjustments */
