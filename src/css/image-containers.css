@@ -1,7 +1,8 @@
 /* Image Container Fixes - Ensures images adapt to container size, not vice versa */
 
 /* Base image rule - images should respect container dimensions */
-img {
+/* But exclude form elements and icons that should maintain their size */
+img:not(.xb-item--icon img):not(.xb-contact-form img):not(form img) {
   max-width: 100%;
   height: auto;
   display: block;
@@ -177,15 +178,29 @@ h3 img {
   width: auto; /* Let it size naturally based on content or explicit CSS */
 }
 
-/* Prevent all image containers from expanding beyond their parent */
-[class*="img"],
-[class*="image"],
+/* Prevent image containers from expanding beyond their parent */
+/* Only target specific image container classes, not all classes with "img" or "image" */
 .xb-img,
 .img-hove-effect,
 .single-item-image,
 .xb-project-img,
-.xb-image-item {
+.xb-image-item,
+.xb-about-img-item,
+.xb-about-img-wrap {
   max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Exclude form containers and other non-image elements */
+.xb-contact-form,
+.xb-contact-input-form,
+.xb-contact-wrap,
+form,
+input,
+textarea,
+select {
+  /* Reset any image-related rules that might affect forms */
+  max-width: none;
   box-sizing: border-box;
 }
 
