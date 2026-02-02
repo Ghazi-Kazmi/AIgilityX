@@ -318,6 +318,17 @@
     padding: 0 20px;
   }
   
+  .xb-menu-close {
+    top: 10px !important;
+    right: 10px !important;
+    width: 18px !important;
+    height: 18px !important;
+  }
+  
+  .xb-menu-close i {
+    font-size: 9px !important;
+  }
+  
   .responsivemenu li a,
   .responsivemenu li p {
     padding: 14px 0 !important;
