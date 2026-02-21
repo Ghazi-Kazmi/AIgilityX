@@ -1,51 +1,77 @@
-import * as React from "react";
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
-import { ChevronDown } from "lucide-react";
-import { cn } from "../../lib/utils";
+import { motion } from "framer-motion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
+import "./FAQSection.css"; // Ensure you import the CSS file
 
-const Accordion = AccordionPrimitive.Root;
+const faqs = [
+  {
+    q: "Who is eligible to participate?",
+    a: "Final‑year students in AI, CS, Data or Cybersecurity, young professionals with 1–5 years of experience, AI/ML engineers, system architects, product designers and governance & policy thinkers.",
+  },
+  {
+    q: "Is there a registration fee?",
+    a: "No. Participation in the AIgilityX™ Sovereign Agentic AI Hackathon 2026 is free of charge.",
+  },
+  {
+    q: "How are teams formed?",
+    a: "Teams are formed during the Phase 1 Fellowship onsite event on 26 March. You may also register with a pre‑formed team of up to 5 members.",
+  },
+  {
+    q: "What should we build?",
+    a: "Teams must deliver a working prototype, a Sovereign AI Architecture Blueprint, an Agentic Decision Workflow and an Enterprise Governance Mapping — all following the AIgilityX™ Sovereign AI Framework.",
+  },
+  {
+    q: "What are the award categories?",
+    a: "Most Sovereign Design, Best Enterprise‑Ready Architecture, Most Scalable Agentic System, Greatest Social Impact and People's Choice Award.",
+  },
+  {
+    q: "Is the hackathon fully remote?",
+    a: "It's hybrid. The Fellowship (Phase 1) and Grand Finale (Phase 4) are onsite in Pakistan. The Build Sprint (Phase 2) is fully remote, and voting (Phase 3) happens online.",
+  },
+  {
+    q: "What do participants gain?",
+    a: "Architecture‑first AI capability, enterprise transformation exposure, recognition aligned with AIgilityX USA standards, strategic positioning for GCC & global markets, and a network of mentors & ecosystem builders.",
+  },
+  {
+    q: "How are submissions judged?",
+    a: "Architecture Depth (35%), Agentic Autonomy (25%), Governance (20%) and Scalability (20%). Tooltips with full criteria details are available in the Selection Criteria section.",
+  },
+];
 
-const AccordionItem = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item ref={ref} className={cn("border-b", className)} {...props} />
-));
-AccordionItem.displayName = "AccordionItem";
+const FAQSection = () => (
+  <section id="faq" className="faq-section">
+    <div className="faq-container">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="faq-heading"
+      >
+        Frequently Asked Questions
+      </motion.h2>
 
-const AccordionTrigger = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Header className="flex">
-    <AccordionPrimitive.Trigger
-      ref={ref}
-      className={cn(
-        "flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
-        className,
-      )}
-      {...props}
-    >
-      {children}
-      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
-    </AccordionPrimitive.Trigger>
-  </AccordionPrimitive.Header>
-));
-AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName;
+      <Accordion type="single" collapsible className="faq-accordion">
+        {faqs.map((f, i) => (
+          <AccordionItem
+            key={i}
+            value={`faq-${i}`}
+            className="faq-item"
+          >
+            <AccordionTrigger className="faq-trigger">
+              {f.q}
+            </AccordionTrigger>
+            <AccordionContent className="faq-content">
+              {f.a}
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  </section>
+);
 
-const AccordionContent = React.forwardRef<
-  React.ElementRef<typeof AccordionPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
->(({ className, children, ...props }, ref) => (
-  <AccordionPrimitive.Content
-    ref={ref}
-    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
-    {...props}
-  >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
-  </AccordionPrimitive.Content>
-));
-
-AccordionContent.displayName = AccordionPrimitive.Content.displayName;
-
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export default FAQSection;
