@@ -275,3 +275,33 @@ footer img,
     object-fit: cover;
   }
 }
+
+/* Service section: single image with subtle, professional hover */
+.service-card-img-effect {
+  overflow: hidden;
+  position: relative;
+  border-radius: inherit;
+}
+
+.service-card-img-effect .xb-img {
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card-img-effect .xb-img a {
+  display: block;
+  overflow: hidden;
+}
+
+.service-card-img-effect .xb-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.service-card-img-effect:hover .xb-img img {
+  transform: scale(1.03);
+}

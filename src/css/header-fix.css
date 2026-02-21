@@ -65,3 +65,13 @@
   }
 }
 
+/* Offset main content when header is always sticky (fixed) - minimal gap below header */
+.content-reveal-wrapper > main {
+  padding-top: 72px;
+}
+@media (max-width: 767px) {
+  .content-reveal-wrapper > main {
+    padding-top: 68px;
+  }
+}
+

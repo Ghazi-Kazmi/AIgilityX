@@ -1,54 +1,39 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { MouseEvent, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/AigilityX-Asset-2-scaled.png";
-import MegaMenu1 from "./MegaMenu1";
-import MegaMenuServices from "./MegaMenu2";
 import MobileMenu from "../MobileMenu/MobileMenu";
 
 const Header: React.FC = () => {
-  const [isSticky, setIsSticky] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
   const [mobileActive, setMobileActive] = useState(false);
-  const lastScrollY = useRef<number>(0);
-  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-
-      if (currentScroll < lastScrollY.current && currentScroll > 100) {
-        setIsSticky(true);
-        scrollTimeout.current = setTimeout(() => setIsVisible(true), 10);
-      } else if (currentScroll > lastScrollY.current) {
-        setIsVisible(false);
-        scrollTimeout.current = setTimeout(() => setIsSticky(false), 100);
-      }
-
-      if (currentScroll <= 100) {
-        setIsSticky(false);
-        setIsVisible(false);
-      }
-
-      lastScrollY.current = currentScroll;
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimeout.current) {
-        clearTimeout(scrollTimeout.current);
-      }
-    };
-  }, []);
 
   const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const handleSubmit = (e: React.FormEvent) => e.preventDefault();
   const toggleMobileMenu = () => setMobileActive((prev) => !prev);
   const closeMobileMenu = () => setMobileActive(false);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+
+    const headerOffsetDesktop = 10;
+    const headerOffsetMobile = 120;
+    const isDesktop = window.innerWidth >= 992;
+    const headerOffset = isDesktop ? headerOffsetDesktop : headerOffsetMobile;
+
+    const elementPosition =
+      element.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  };
+
+  const handleNavScroll = (e: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
 
   // Inline styles for logo container
   const logoContainerStyle: React.CSSProperties = {
@@ -100,11 +85,7 @@ const Header: React.FC = () => {
       id="xb-header-area"
       className="header-area header-style--one is-sticky"
     >
-      <div
-        className={`xb-header xb-sticky-stt ${
-          isSticky ? "xb-header-area-sticky" : ""
-        } ${isVisible ? "xb-header-fixed" : ""}`}
-      >
+      <div className="xb-header xb-sticky-stt xb-header-area-sticky xb-header-fixed">
         <div className="header-container-wrapper">
           <div className="header-glass-container">
             <div className="header__wrap ul_li_between">
@@ -139,12 +120,12 @@ const Header: React.FC = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link to="/ai-marketing" onClick={handleClick}>
+                          <Link to="/" onClick={handleClick}>
                             <span>Ai Marketing</span>
                           </Link>
                         </li>
                         <li>
-                          <Link to="/ai-chatbot" onClick={handleClick}>
+                          <Link to="/" onClick={handleClick}>
                             <span>Ai Chatbot</span>
                           </Link>
                         </li>
@@ -152,26 +133,31 @@ const Header: React.FC = () => {
                     </li>
 
                     <li>
-                      <Link to="/about" onClick={handleClick}>
+                      <Link
+                        to="/"
+                        onClick={(e) => handleNavScroll(e, "about-section")}
+                      >
                         <span>About Us</span>
                       </Link>
                     </li>
 
-                    <li className="menu-item-has-children megamenu">
+                    {/* <li className="menu-item-has-children megamenu">
                       <Link to="#" onClick={handleClick}>
                         <span>Pages</span>
                       </Link>
                       <MegaMenu1 />
-                    </li>
+                    </li> */}
 
-                    <li className="menu-item-has-children megamenu">
-                      <Link to="#" onClick={handleClick}>
+                    <li>
+                      <Link
+                        to="/"
+                        onClick={(e) => handleNavScroll(e, "services-section")}
+                      >
                         <span>Services</span>
                       </Link>
-                      <MegaMenuServices />
                     </li>
 
-                    <li className="menu-item-has-children">
+                    {/* <li className="menu-item-has-children">
                       <Link to="/blog" onClick={handleClick}>
                         <span>Blog</span>
                       </Link>
@@ -187,11 +173,26 @@ const Header: React.FC = () => {
                           </Link>
                         </li>
                       </ul>
-                    </li>
-
+                    </li> */}
                     <li>
-                      <Link to="/contact" onClick={handleClick}>
+                      <Link
+                        to="/"
+                        onClick={(e) => handleNavScroll(e, "ecosystem")}
+                      >
+                        <span>Ecosystem</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/"
+                        onClick={(e) => handleNavScroll(e, "contact-section")}
+                      >
                         <span>Contact Us</span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/hackathon" onClick={handleClick}>
+                        <span>Hackathon</span>
                       </Link>
                     </li>
                   </ul>
@@ -448,10 +449,10 @@ const Header: React.FC = () => {
 
         /* Hamburger button styles are now in mobile-menu-fix.css for better mobile responsiveness */
 
-        /* Sticky Header */
+        /* Sticky Header - flush to top to avoid empty space above */
         .xb-header-area-sticky {
           position: fixed;
-          top: 20px;
+          top: 0;
           left: 0;
           right: 0;
           z-index: 999;

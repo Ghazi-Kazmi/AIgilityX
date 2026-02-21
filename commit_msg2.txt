@@ -1,0 +1,12 @@
+Integrate hackathon one-pager page with dual-header layout
+
+- Add complete one-pager website integration from One-Pager-Website project
+- Create /hackathon route with OnePagerPage component
+- Implement dual-header layout: main header (non-sticky) + sub-header (sticky)
+- Add hackathon link to main navigation (desktop and mobile)
+- Install dependencies: framer-motion, lucide-react, @radix-ui/react-accordion, clsx, tailwind-merge, tailwindcss-animate
+- Configure Tailwind for one-pager theme and animations
+- Fix header overlap issues with proper z-index and positioning
+- Ensure headers stack naturally in document flow without overlap
+
+

@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import HeroSection from "../../components/hero/Hero";
 import AboutSection from "../../components/about/about";
 import ServiceSection from "../../components/ServiceSection/ServiceSection";
+import GlobalAIExpertiseSection from "../../components/GlobalAIExpertiseSection/GlobalAIExpertiseSection";
 import FeatureSection from "../../components/FeatureSection/FeatureSection";
 import ProjectSection from "../../components/ProjectSection/ProjectSection";
 import IndustriesMarqueeSection from "../../components/IndustriesMarqueeSection/IndustriesMarqueeSection";
@@ -23,21 +24,24 @@ const HomePage: React.FC = () => {
     <Fragment>
         <div className='ai-agency'>
           <div className="body_wrap o-clip">
-            <Header />
-            <main >
-              <HeroSection/>
-              <AboutSection/>
-              <ServiceSection/>
-              <FeatureSection/>
-              <ProjectSection/>
-              <IndustriesMarqueeSection/>
-              <IndustriesSection/>
-              <TestimonialSection/>
-              <BlogSection/>
-              <ContactSection/>
-            </main>
+            <div className="content-reveal-wrapper">
+              <Header />
+              <main>
+                <HeroSection/>
+                <AboutSection/>
+                <ServiceSection/>
+                <GlobalAIExpertiseSection />
+                <FeatureSection/>
+                <ProjectSection/>
+                <IndustriesMarqueeSection/>
+                <IndustriesSection/>
+                {/* <TestimonialSection/>
+                <BlogSection/> */}
+                <ContactSection/>
+              </main>
+              <Scrollbar />
+            </div>
             <Footer />
-            <Scrollbar />
           </div>
         </div>
     </Fragment>

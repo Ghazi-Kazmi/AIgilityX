@@ -7,6 +7,7 @@ import "./tailwind.css";
 import "./css/header-fix.css";
 // Image container fixes - ensures images adapt to container size
 import "./css/image-containers.css";
+import "./css/contact-section.css";
 // Mobile menu fixes - improved responsive design and hamburger button
 import "./css/mobile-menu-fix.css";
 // Legacy/third-party CSS imports
@@ -22,6 +23,18 @@ import "./css/imageRevealHover.css";
 import "./css/custom-fonts.css";
 import "./css/main.css";
 import App from "./main-component/App/App";
+
+// Reset scroll position immediately on page load (before React renders)
+if (typeof window !== "undefined") {
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  
+  // Prevent scroll restoration from browser history
+  if ("scrollRestoration" in window.history) {
+    window.history.scrollRestoration = "manual";
+  }
+}
 
 const rootElement = document.getElementById("root") as HTMLElement;
 const root = ReactDOM.createRoot(rootElement);

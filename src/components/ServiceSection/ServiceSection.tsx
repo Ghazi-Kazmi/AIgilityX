@@ -5,12 +5,12 @@ import gif from "../../images/icon/b10c3e43e836d32554bf.gif";
 import arrowIcon from "../../images/icon/rotate-arrow-black.svg";
 
 // Service images
-import img01 from "../../images/service/img01.jpg";
-import img02 from "../../images/service/img02.jpg";
-import img03 from "../../images/service/img03.jpg";
-import img04 from "../../images/service/img04.jpg";
-import img05 from "../../images/service/img05.jpg";
-import img06 from "../../images/service/img06.jpg";
+import img01 from "../../assets/services/11.png";
+import img02 from "../../assets/services/22.png";
+import img03 from "../../assets/services/33.png";
+import img04 from "../../assets/services/44.png";
+import img05 from "../../assets/services/55.png";
+import img06 from "../../assets/services/66.png";
 
 interface ServiceItem {
   id: number;
@@ -74,19 +74,19 @@ const ServiceSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="service pt-135">
+    <section id="ecosystem" className="service pt-135">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-11">
             <div className="sec-title custom-sec-title xb-sec-padding text-center">
-              <span className="sub-title">Our Main Services</span>
+              <span className="sub-title">AIgilityX™ Ecosystem</span>
               <h2 className="title">
-                <span className="round-img">
-                  <img src={gif} alt="gif" />
-                </span>{" "}
-                Helping you grow with the power of AI
+                {/* <span className="round-img"> */}
+                  {/* <img src={gif} alt="gif" /> */}
+                {/* </span> */}
+                Explore Ecosystem Pillars Powering Sovereign, Scalable AI
               </h2>
-              <div className="xb-heading-btn d-inline">
+              {/* <div className="xb-heading-btn d-inline">
                 <Link className="thm-btn agency-btn" to="/service">
                   <span className="text">view more services</span>
                   <span className="arrow">
@@ -223,7 +223,7 @@ const ServiceSection: React.FC = () => {
                     </span>
                   </span>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -249,13 +249,11 @@ const ServiceSection: React.FC = () => {
                   </Link>
                 </div>
                 <p className="xb-item--content">{service.desc}</p>
-                <div className="img-hove-effect">
+                <div className="service-card-img-effect">
                   <div className="xb-item--img xb-img">
-                    {[...Array(4)].map((_, i) => (
-                      <Link to={service.link} key={i}>
-                        <img src={service.img} alt={service.title} />
-                      </Link>
-                    ))}
+                    {/* <Link to={service.link}> */}
+                      <img src={service.img} alt={service.title} />
+                    {/* </Link> */}
                   </div>
                 </div>
               </div>

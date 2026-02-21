@@ -15,15 +15,46 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+// Store Lenis instance globally for use in ScrollToTop component
+declare global {
+  interface Window {
+    lenisInstance?: Lenis;
+  }
+}
+
 const App: React.FC = () => {
   // ======================
   // 🌀 Lenis + GSAP Setup
   // ======================
   useEffect(() => {
+    // Reset scroll position immediately before initializing Lenis
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    
+    // Force scroll to top after a brief delay to ensure DOM is ready
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }, 100);
+
     const lenis = new Lenis({
       smoothWheel: true,
       lerp: 0.08,
     });
+
+    // Store Lenis instance globally
+    window.lenisInstance = lenis;
+
+    // Ensure scroll position is at top after Lenis initialization
+    lenis.scrollTo(0, { immediate: true });
+    
+    // Double-check scroll position after Lenis is ready
+    setTimeout(() => {
+      lenis.scrollTo(0, { immediate: true });
+      window.scrollTo(0, 0);
+    }, 200);
 
     // Sync Lenis with GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
@@ -38,6 +69,7 @@ const App: React.FC = () => {
       gsap.ticker.remove((time) => {
         lenis.raf(time * 1000);
       });
+      delete window.lenisInstance;
       lenis.destroy();
     };
   }, []);

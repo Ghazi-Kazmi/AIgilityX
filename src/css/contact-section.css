@@ -1,0 +1,95 @@
+/* Contact section – overlay, layout, and responsive enhancements */
+
+.contact-section {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-section__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    105deg,
+    var(--color-body) 0%,
+    rgba(0, 2, 15, 0.92) 35%,
+    rgba(0, 2, 15, 0.75) 60%,
+    rgba(0, 2, 15, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+.contact-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Use default .sec-title .sub-title green dot from main.css for consistency */
+
+.contact-section__underline {
+  width: 60px;
+  height: 3px;
+  background: var(--color-primary);
+  margin: 16px auto 0;
+  border-radius: 2px;
+}
+
+.contact-section__form-card {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: linear-gradient(
+    209deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.contact-section__form-card .form-heading .sub-title {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@media (max-width: 991px) {
+  .contact-section.contact-section--fullbg {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .contact-section__form-card {
+    margin-top: 24px;
+  }
+}
+
+/* Form focus and error styling within contact section */
+.contact-section__form-card .xb-input-field input:focus,
+.contact-section__form-card .xb-input-field textarea:focus,
+.contact-section__form-card .xb-select-field .nice-select:focus,
+.contact-section__form-card .xb-select-file:focus-within {
+  border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.contact-section__form-card .errorMessage {
+  color: var(--color-error);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.contact-section__form-card .form-btn {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 767px) {
+  .contact-section.contact-section--fullbg {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .contact-section__sec-title.mb-50 {
+    margin-bottom: 32px !important;
+  }
+}

@@ -1,0 +1,5 @@
+[0210/230306.561:ERROR:ui\base\resource\resource_bundle.cc:1075] Failed to load C:\Program Files\cursor\chrome_100_percent.pak
+Some features may not be available.
+[0210/230306.561:WARNING:ui\base\resource\resource_bundle.cc:494] locale_file_path.empty() for locale 
+[0210/230306.561:ERROR:ui\base\resource\resource_bundle.cc:1075] Failed to load C:\Program Files\cursor\resources.pak
+Some features may not be available.
