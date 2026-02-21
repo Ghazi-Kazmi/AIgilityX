@@ -17,12 +17,12 @@ module.exports = {
       colors: {
         border: "hsl(var(--border, 220 20% 18%))",
         input: "hsl(var(--input, 220 20% 18%))",
-        ring: "hsl(var(--ring, 186 95% 73%))",
+        ring: "hsl(var(--ring, 197 88% 42%))",
         background: "hsl(var(--background, 222 47% 6%))",
         foreground: "hsl(var(--foreground, 214 32% 91%))",
         primary: {
-          DEFAULT: "hsl(var(--primary, 186 95% 73%))",
-          foreground: "hsl(var(--primary-foreground, 222 47% 6%))",
+          DEFAULT: "hsl(var(--primary, 197 88% 42%))",
+          foreground: "hsl(var(--primary-foreground, 0 0% 100%))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary, 217 33% 17%))",
