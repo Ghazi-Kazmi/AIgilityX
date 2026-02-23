@@ -190,10 +190,27 @@ const Header: React.FC = () => {
                         <span>Contact Us</span>
                       </Link>
                     </li>
-                    <li>
-                      <Link to="/hackathon" onClick={handleClick}>
-                        <span>Hackathon</span>
+                    <li className="menu-item-has-children">
+                      <Link to="#" onClick={handleClick}>
+                        <span>Global AI Initiatives</span>
                       </Link>
+                      <ul className="submenu">
+                        <li>
+                          <Link to="/hackathon" onClick={handleClick}>
+                            <span>Sovereign AI Hackathon</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="#" onClick={handleClick}>
+                            <span>Global Sovereign AI Summit</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="#" onClick={handleClick}>
+                            <span>AI Leaders Fellowship</span>
+                          </Link>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </nav>
