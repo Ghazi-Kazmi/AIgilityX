@@ -1,20 +1,30 @@
 import React from "react";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import "./style.css";
 
 const Scrollbar: React.FC = () => {
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window === "undefined") return;
+    if (window.lenisInstance) {
+      window.lenisInstance.scrollTo(0, { immediate: false });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
     <div className="col-lg-12">
       <div className="header-menu">
         <ul className="smothscroll">
           <li>
-            <AnchorLink
-              href="#scrool"
+            <a
+              href="#"
               aria-label="Scroll to top"
               className="scroll-to-top"
+              onClick={handleScrollToTop}
             >
               <i className="ti-arrow-up" aria-hidden="true"></i>
-            </AnchorLink>
+            </a>
           </li>
         </ul>
       </div>

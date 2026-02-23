@@ -36,10 +36,11 @@
   display: flex !important;
   visibility: visible !important;
   width: 100% !important;
-  flex-wrap: wrap !important;
+  flex-wrap: nowrap !important;
   list-style: none !important;
   padding: 0 !important;
   margin: 0 !important;
+  gap: 6px !important;
 }
 
 .header-area .main-menu > ul > li,
