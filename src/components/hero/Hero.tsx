@@ -7,33 +7,41 @@ import heroVisual from "../../images/hero/hero-img01.png";
 interface CardData {
   pillar: string;
   title: string;
-  description: string;
+  bullets: string[];
 }
 
 const cards: CardData[] = [
   {
     pillar: "Sovereign Strategy",
     title: "AI Readiness & Strategy",
-    description:
-      "Assess, prioritize, and roadmap your enterprise AI journey using the AIgilityX AIgile Mindset™ and 5E Framework. Gain board-level maturity visibility, define executive roadmaps, and align initiatives with national priorities and governance objectives.",
+    bullets: [
+      "Roadmap your AI journey with the AIgile Mindset™ & 5E Framework",
+      "Align executive initiatives with national priorities & governance",
+    ],
   },
   {
     pillar: "Agentic Execution",
     title: "Agentic AI Factory™",
-    description:
-      "Design, build, and industrialize sovereign-ready AI agents through the AIgilityX Agentic AI Factory™. Establish governed lifecycles, enable enterprise orchestration, and deploy production-grade guardrails that move initiatives from pilot to trusted execution.",
+    bullets: [
+      "Industrialize sovereign-ready AI agents with governed lifecycles",
+      "Deploy production-grade guardrails from pilot to trusted execution",
+    ],
   },
   {
     pillar: "Workforce Enablement",
     title: "AIgile Leadership & Workforce",
-    description:
-      "Build AI-ready leaders and future-proof teams through the AIgilityX AI Leadership Fellowship and capability pathways. Advance the mission of developing one million AI-Ready Agile Leaders across sectors, domains, and national talent ecosystems.",
+    bullets: [
+      "Build AI-ready leaders via the AI Leadership Fellowship",
+      "Develop one million AI-Ready Agile Leaders across sectors",
+    ],
   },
   {
     pillar: "Enterprise & National Scale",
     title: "Sovereign AI Ecosystems",
-    description:
-      "Operationalize trusted, secure, and governed AI ecosystems aligned with enterprise strategy and national priorities. Strengthen sovereignty, regulatory confidence, and long-term resilience through scalable, future-ready AI platforms.",
+    bullets: [
+      "Operationalize trusted, governed AI aligned with national priorities",
+      "Strengthen sovereignty & resilience through scalable AI platforms",
+    ],
   },
 ];
 
@@ -125,7 +133,11 @@ const HeroSection: React.FC = () => {
             <div className="aigx-card" key={index}>
               <div className="aigx-pillar">{card.pillar}</div>
               <h3>{card.title}</h3>
-              <p>{card.description}</p>
+              <ul className="aigx-card-bullets">
+                {card.bullets.map((bullet, i) => (
+                  <li key={i}>{bullet}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>

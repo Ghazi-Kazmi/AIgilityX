@@ -13087,8 +13087,8 @@ body .mfp-wrap .mfp-container .mfp-content .mfp-close:hover::before, body .mfp-w
 
 .aigx-card h3 {
   margin: 0 0 12px;
-  font-size: 18px;
-  color: #0d97c9;
+  font-size: 16px;
+  color: #fff;
   font-family: var(--font-heading);
 }
 
@@ -13097,7 +13097,23 @@ body .mfp-wrap .mfp-container .mfp-content .mfp-close:hover::before, body .mfp-w
   font-size: 13.5px;
   line-height: 1.65;
   color: rgba(230, 240, 255, .92);
-  min-height: 108px;
+}
+
+.aigx-card-bullets {
+  margin: 0;
+  padding: 0 0 0 18px;
+  list-style: disc;
+}
+
+.aigx-card-bullets li {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: #0d97c9;
+  margin-bottom: 6px;
+}
+
+.aigx-card-bullets li:last-child {
+  margin-bottom: 0;
 }
 
 /* ===== Responsive ===== */
