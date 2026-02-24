@@ -1,12 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-// Image imports (using your provided path)
-import heroBg from "../../images/bg/hero_bg.png";
-import heroIcon from "../../images/icon/animated-gif02.gif";
-import featureIcon1 from "../../images/icon/feature-icon01.svg";
-import featureIcon2 from "../../images/icon/feature-icon02.svg";
-import featureIcon3 from "../../images/icon/feature-icon03.svg";
+// Use existing project hero image as visual placeholder
+import heroVisual from "../../images/hero/hero-img01.png";
+
+interface CardData {
+  pillar: string;
+  title: string;
+  description: string;
+}
+
+const cards: CardData[] = [
+  {
+    pillar: "Sovereign Strategy",
+    title: "AI Readiness & Strategy",
+    description:
+      "Assess, prioritize, and roadmap your enterprise AI journey using the AIgilityX AIgile Mindset™ and 5E Framework. Gain board-level maturity visibility, define executive roadmaps, and align initiatives with national priorities and governance objectives.",
+  },
+  {
+    pillar: "Agentic Execution",
+    title: "Agentic AI Factory™",
+    description:
+      "Design, build, and industrialize sovereign-ready AI agents through the AIgilityX Agentic AI Factory™. Establish governed lifecycles, enable enterprise orchestration, and deploy production-grade guardrails that move initiatives from pilot to trusted execution.",
+  },
+  {
+    pillar: "Workforce Enablement",
+    title: "AIgile Leadership & Workforce",
+    description:
+      "Build AI-ready leaders and future-proof teams through the AIgilityX AI Leadership Fellowship and capability pathways. Advance the mission of developing one million AI-Ready Agile Leaders across sectors, domains, and national talent ecosystems.",
+  },
+  {
+    pillar: "Enterprise & National Scale",
+    title: "Sovereign AI Ecosystems",
+    description:
+      "Operationalize trusted, secure, and governed AI ecosystems aligned with enterprise strategy and national priorities. Strengthen sovereignty, regulatory confidence, and long-term resilience through scalable, future-ready AI platforms.",
+  },
+];
 
 const HeroSection: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -28,247 +57,77 @@ const HeroSection: React.FC = () => {
     });
   };
 
-  const handleNavScroll = (e: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-      e.preventDefault();
-      scrollToSection(sectionId);
-    };
+  const handleNavScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
+    e.preventDefault();
+    scrollToSection(sectionId);
+  };
 
   return (
-    <section
-      className="hero hero-style pos-rel bg_img"
-      style={{ backgroundImage: `url(${heroBg})` }}
-    >
-      <div className="container">
-        <div className="row">
-          {/* ---------- Left Content ---------- */}
-          <div className="col-lg-9 col-md-9">
-            <div className="hero-content">
-              <h2 className="title scale-animation wow">
-                Empower your business with smarter AI agency
-              </h2>
-              <p className="sub-title scale-animation wow">
-                Unlock growth and efficiency with tailored AI solutions. We use
-                automation and data-driven strategies to help you innovate and
-                scale.
-              </p>
-              <div className="hero-btn scale-animation wow">
-                <Link className="thm-btn agency-btn" 
+    <section className="aigx-hero">
+      <div className="aigx-container">
+        {/* ================= HERO TOP ================= */}
+        <div className="aigx-hero-grid">
+          {/* LEFT CONTENT */}
+          <div className="aigx-hero-content">
+            <div className="aigx-kicker">
+              Sovereign AI • National Resilience • Secure Execution
+            </div>
+
+            <h1 className="aigx-title">
+              Building the World's First{" "}
+              <span className="aigx-accent">Sovereign AI Ecosystem</span>
+            </h1>
+
+            <p className="aigx-sub">
+              Through Ethical Intelligence, empowering nations, enterprises,
+              SMEs, communities &amp; individuals.
+            </p>
+
+            <p className="aigx-desc">
+              AIgilityX™ enables sovereign strategy, agentic execution,
+              workforce enablement, and enterprise-scale AI aligned with
+              national priorities, security, and long-term resilience.
+            </p>
+
+            <div className="aigx-actions">
+              <Link
                 to="/"
-                onClick={(e) => handleNavScroll(e, "contact-section")}>
-                  <span className="text">Begin Today with us</span>
-                  <span className="arrow">
-                    <span className="arrow-icon">
-                      <svg
-                        width="28"
-                        height="28"
-                        viewBox="0 0 28 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect
-                          x="5.06592"
-                          y="19.9785"
-                          width="20.5712"
-                          height="2.61221"
-                          transform="rotate(-40.2798 5.06592 19.9785)"
-                          fill="white"
-                        />
-                        <rect
-                          x="7.97095"
-                          y="7.24463"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 7.97095 7.24463)"
-                          fill="white"
-                        />
-                        <rect
-                          x="11.6523"
-                          y="7.54834"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 11.6523 7.54834)"
-                          fill="white"
-                        />
-                        <rect
-                          x="15.334"
-                          y="7.85205"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 15.334 7.85205)"
-                          fill="white"
-                        />
-                        <rect
-                          x="18.7119"
-                          y="11.8374"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 18.7119 11.8374)"
-                          fill="white"
-                        />
-                        <rect
-                          x="18.4084"
-                          y="15.52"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 18.4084 15.52)"
-                          fill="white"
-                        />
-                        <rect
-                          x="18.104"
-                          y="19.2012"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 18.104 19.2012)"
-                          fill="white"
-                        />
-                      </svg>
-                      <svg
-                        width="28"
-                        height="28"
-                        viewBox="0 0 28 28"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect
-                          x="5.06592"
-                          y="19.9785"
-                          width="20.5712"
-                          height="2.61221"
-                          transform="rotate(-40.2798 5.06592 19.9785)"
-                          fill="white"
-                        />
-                        <rect
-                          x="7.97095"
-                          y="7.24463"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 7.97095 7.24463)"
-                          fill="white"
-                        />
-                        <rect
-                          x="11.6523"
-                          y="7.54834"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 11.6523 7.54834)"
-                          fill="white"
-                        />
-                        <rect
-                          x="15.334"
-                          y="7.85205"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 15.334 7.85205)"
-                          fill="white"
-                        />
-                        <rect
-                          x="18.7119"
-                          y="11.8374"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 18.7119 11.8374)"
-                          fill="white"
-                        />
-                        <rect
-                          x="18.4084"
-                          y="15.52"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 18.4084 15.52)"
-                          fill="white"
-                        />
-                        <rect
-                          x="18.104"
-                          y="19.2012"
-                          width="2.61221"
-                          height="2.61221"
-                          transform="rotate(-40.2798 18.104 19.2012)"
-                          fill="white"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </Link>
-              </div>
+                className="aigx-btn aigx-btn-primary"
+                onClick={(e) => handleNavScroll(e, "contact-section")}
+              >
+                Join the AIgile Leadership Movement
+              </Link>
+              <Link to="/" className="aigx-btn aigx-btn-ghost">
+                Explore Agentic AI Factory™
+              </Link>
             </div>
           </div>
 
-          {/* ---------- Right Icon ---------- */}
-          <div className="col-lg-3 col-md-3">
-            <div
-              className="hero-icon wow zoomIn"
-              data-wow-delay="700ms"
-              data-wow-duration="800ms"
-            >
-              <img src={heroIcon} alt="Hero icon" />
-            </div>
+          {/* RIGHT VISUAL */}
+          <div className="aigx-visual">
+            <img
+              src={heroVisual}
+              alt="Global Sovereign AI Ecosystem"
+              loading="eager"
+            />
           </div>
         </div>
 
-        {/* ---------- Features ---------- */}
-        <div className="row mt-55">
-          <div className="col-lg-4 col-md-6 mt-30">
-            <div
-              className="xb-feature-item wow fadeInUp"
-              data-wow-delay="700ms"
-              data-wow-duration="600ms"
-            >
-              <div className="xb-item--inner xb-border">
-                <span className="xb-item--icon">
-                  <img src={featureIcon1} alt="icon" />
-                </span>
-                <div className="xb-item--holder">
-                  <h2 className="xb-item--title">Smarter insights</h2>
-                  <p className="xb-item--content">
-                    Make faster, data-driven decisions powered by real-time AI
-                    analysis.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* ================= JOURNEY LINE ================= */}
+        <div className="aigx-journey"></div>
 
-          <div className="col-lg-4 col-md-6 mt-30">
-            <div
-              className="xb-feature-item wow fadeInUp"
-              data-wow-delay="800ms"
-              data-wow-duration="600ms"
-            >
-              <div className="xb-item--inner xb-border">
-                <span className="xb-item--icon">
-                  <img src={featureIcon2} alt="icon" />
-                </span>
-                <div className="xb-item--holder">
-                  <h2 className="xb-item--title">Integrated AI solutions</h2>
-                  <p className="xb-item--content">
-                    No extra tools or plugins needed. Get built-in, scalable AI
-                    from day one.
-                  </p>
-                </div>
-              </div>
+        {/* ================= CARDS ================= */}
+        <div className="aigx-cards">
+          {cards.map((card, index) => (
+            <div className="aigx-card" key={index}>
+              <div className="aigx-pillar">{card.pillar}</div>
+              <h3>{card.title}</h3>
+              <p>{card.description}</p>
             </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6 mt-30">
-            <div
-              className="xb-feature-item wow fadeInUp"
-              data-wow-delay="900ms"
-              data-wow-duration="600ms"
-            >
-              <div className="xb-item--inner xb-border">
-                <span className="xb-item--icon">
-                  <img src={featureIcon3} alt="icon" />
-                </span>
-                <div className="xb-item--holder">
-                  <h2 className="xb-item--title">End-to-end automation</h2>
-                  <p className="xb-item--content">
-                    Eliminate bottlenecks with intelligent workflows that never
-                    leave you guessing.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
