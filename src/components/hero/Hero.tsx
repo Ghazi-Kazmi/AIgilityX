@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 // Use existing project hero image as visual placeholder
 import heroVisual from "../../assets/hero/hero.png";
+import heroBg from "../../assets/hero/hero-bg.png";
 
 interface CardData {
   pillar: string;
@@ -74,7 +75,10 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="aigx-hero">
+    <section
+      className="aigx-hero"
+      style={{ backgroundImage: `url(${heroBg})` }}
+    >
       <div className="aigx-container">
         {/* ================= HERO TOP ================= */}
         <div className="aigx-hero-grid">
@@ -108,9 +112,11 @@ const HeroSection: React.FC = () => {
               >
                 Join the AIgile Leadership Movement
               </Link>
-              <Link to="/" className="aigx-btn aigx-btn-ghost">
+              <Link to="/" className="aigx-btn aigx-btn-ghost"
+              onClick={(e) => handleNavScroll(e, "ecosystem")}>
                 Explore Sovereign AI Ecosystem™
               </Link>
+              
             </div>
           </div>
 

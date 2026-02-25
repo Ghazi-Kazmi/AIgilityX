@@ -12939,10 +12939,10 @@ body .mfp-wrap .mfp-container .mfp-content .mfp-close:hover::before, body .mfp-w
 
 .aigx-hero {
   padding: 140px 24px 70px;  /* top value (140px) controls space below header — adjust as needed */
-  background:
-    radial-gradient(circle at 20% 20%, rgba(13, 151, 201, .12), transparent 60%),
-    radial-gradient(circle at 80% 40%, rgba(0, 180, 255, .08), transparent 60%),
-    var(--color-body, #050816);
+  background-color: var(--color-body, #050816);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: #eaf2ff;
   font-family: var(--font-body);
 }
