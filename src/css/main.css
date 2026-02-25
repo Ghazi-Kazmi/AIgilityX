@@ -4411,6 +4411,7 @@ Drop Down menu end
   position: absolute;
   z-index: 2;
   top: 119px;
+  opacity: 0.8;
   left: 14.5%;
   max-width: 71%;
   overflow: hidden; }
@@ -10359,7 +10360,7 @@ Drop Down menu end
   overflow: hidden; }
 
 .o-clip {
-  overflow: visible; }
+  overflow: clip; }
 
 .mxw-1800 {
   max-width: 1800px; }
@@ -12957,7 +12958,7 @@ body .mfp-wrap .mfp-container .mfp-content .mfp-close:hover::before, body .mfp-w
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 40%, transparent 100%);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 40%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
   z-index: 0;
   pointer-events: none;
 }
@@ -13170,6 +13171,40 @@ body .mfp-wrap .mfp-container .mfp-content .mfp-close:hover::before, body .mfp-w
     grid-template-columns: 1fr;
   }
   .aigx-hero {
-    padding: 60px 18px 40px;
+    padding: 100px 16px 40px;
+    overflow: hidden;
+  }
+  .aigx-hero-grid {
+    gap: 30px;
+  }
+  .aigx-accent {
+    white-space: normal;
+  }
+  .aigx-title {
+    font-size: clamp(28px, 7vw, 38px);
+  }
+  .aigx-sub {
+    font-size: 16px;
+  }
+  .aigx-desc {
+    font-size: 13px;
+  }
+  .aigx-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .aigx-btn {
+    text-align: center;
+    width: 100%;
+  }
+  .aigx-visual {
+    padding: 14px;
+  }
+  .aigx-visual img {
+    max-width: 100%;
+  }
+  .aigx-container {
+    max-width: 100%;
+    padding: 0;
   }
 }
