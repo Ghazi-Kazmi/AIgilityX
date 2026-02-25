@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 // Use existing project hero image as visual placeholder
-import heroVisual from "../../images/hero/hero-img01.png";
+import heroVisual from "../../assets/hero/hero.png";
 
 interface CardData {
   pillar: string;
@@ -40,7 +40,7 @@ const cards: CardData[] = [
     title: "Sovereign AI Ecosystems",
     bullets: [
       "Operationalize trusted, governed AI aligned with national priorities",
-      "Strengthen sovereignty & resilience through scalable AI platforms",
+      "Strengthen sovereignty & resilience through scalable AI",
     ],
   },
 ];
@@ -109,7 +109,7 @@ const HeroSection: React.FC = () => {
                 Join the AIgile Leadership Movement
               </Link>
               <Link to="/" className="aigx-btn aigx-btn-ghost">
-                Explore Agentic AI Factory™
+                Explore Sovereign AI Ecosystem™
               </Link>
             </div>
           </div>
