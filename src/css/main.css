@@ -4411,7 +4411,12 @@ Drop Down menu end
   position: absolute;
   z-index: 2;
   top: 119px;
-  left: 14.5%; }
+  left: 14.5%;
+  max-width: 71%;
+  overflow: hidden; }
+  .xb-gardiant-shape-two img {
+    max-width: 100%;
+    height: auto; }
   @media (max-width: 991px) {
     .xb-gardiant-shape-two {
       left: 17.5%; } }
@@ -12945,6 +12950,21 @@ body .mfp-wrap .mfp-container .mfp-content .mfp-close:hover::before, body .mfp-w
   background-repeat: no-repeat;
   color: #eaf2ff;
   font-family: var(--font-body);
+  position: relative;
+}
+
+.aigx-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 40%, transparent 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.aigx-hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .aigx-container {
@@ -12986,6 +13006,8 @@ body .mfp-wrap .mfp-container .mfp-content .mfp-close:hover::before, body .mfp-w
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .aigx-sub {

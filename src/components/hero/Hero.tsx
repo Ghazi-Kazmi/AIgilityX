@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // Use existing project hero image as visual placeholder
 import heroVisual from "../../assets/hero/hero.png";
-import heroBg from "../../assets/hero/hero-bg.png";
+import heroBg from "../../assets/hero/hero-bg1.png";
 
 interface CardData {
   pillar: string;
@@ -120,14 +120,15 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* RIGHT VISUAL */}
-          <div className="aigx-visual">
+        {/* RIGHT VISUAL */}
+            {/* <div className="aigx-visual">
             <img
               src={heroVisual}
               alt="Global Sovereign AI Ecosystem"
               loading="eager"
             />
-          </div>
+          </div> */}
+
         </div>
 
         {/* ================= JOURNEY LINE ================= */}
