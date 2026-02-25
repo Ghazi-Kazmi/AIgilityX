@@ -85,7 +85,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             <h1 className="aigx-title">
-              Building the World's First{" "}
+              Building the Global{" "}
               <span className="aigx-accent">Sovereign AI Ecosystem</span>
             </h1>
 
