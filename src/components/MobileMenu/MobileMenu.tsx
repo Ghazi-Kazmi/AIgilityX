@@ -13,45 +13,32 @@ interface MenuItem {
 const menus: MenuItem[] = [
   {
     id: 1,
-    title: "Home",
+    title: "Ecosystem",
     link: "/",
-    submenu: [
-      { id: 11, title: "AI Agency", link: "/" },
-      { id: 12, title: "AI Marketing", link: "/ai-marketing" },
-      { id: 13, title: "AI Chatbot", link: "/ai-chatbot" },
-    ],
   },
   {
     id: 2,
-    title: "About",
-    link: "/about",
-  },
-  {
-    id: 3,
-    title: "Pages",
-    link: "#",
-    submenu: [
-      { id: 31, title: "Services", link: "/service" },
-      { id: 32, title: "Service Details", link: "/service-details" },
-      { id: 33, title: "Career", link: "/career" },
-      { id: 34, title: "Career Details", link: "/career-details" },
-      { id: 35, title: "Projects", link: "/project" },
-      { id: 36, title: "Project Details", link: "/project-details" },
-      { id: 37, title: "Team", link: "/team" },
-    ],
-  },
-  {
-    id: 4,
     title: "Services",
     link: "/",
   },
   {
+    id: 3,
+    title: "Expertise",
+    link: "/",
+  },
+  {
+    id: 4,
+    title: "Education",
+    link: "/",
+  },
+  {
     id: 5,
-    title: "Blog",
-    link: "/blog",
+    title: "Research Insights",
+    link: "/",
     submenu: [
-      { id: 51, title: "Blog", link: "/blog" },
-      { id: 52, title: "Blog Details", link: "/blog-details" },
+      { id: 51, title: "Blogs", link: "/" },
+      { id: 52, title: "Whitepapers", link: "/" },
+      { id: 53, title: "Case Studies", link: "/" },
     ],
   },
   {
@@ -60,14 +47,14 @@ const menus: MenuItem[] = [
     link: "#",
     submenu: [
       { id: 61, title: "Sovereign AI Hackathon", link: "/hackathon" },
-      { id: 62, title: "Global AI Summit", link: "#" },
+      { id: 62, title: "Global Sovereign AI Summit", link: "#" },
       { id: 63, title: "AI Leaders Fellowship", link: "#" },
     ],
   },
   {
     id: 7,
-    title: "Contact",
-    link: "/contact",
+    title: "Contact Us",
+    link: "/",
   },
 ];
 
@@ -128,13 +115,16 @@ const MobileMenu: React.FC = () => {
             <Link
               to={menu.link}
               onClick={(e) => {
-                if (menu.title === "About") {
+                if (menu.title === "Ecosystem") {
                   e.preventDefault();
-                  scrollToSection("about-section");
+                  scrollToSection("ecosystem");
                 } else if (menu.title === "Services") {
                   e.preventDefault();
                   scrollToSection("services-section");
-                } else if (menu.title === "Contact") {
+                } else if (menu.title === "Expertise") {
+                  e.preventDefault();
+                  scrollToSection("expertise");
+                } else if (menu.title === "Contact Us") {
                   e.preventDefault();
                   scrollToSection("contact-section");
                 } else {

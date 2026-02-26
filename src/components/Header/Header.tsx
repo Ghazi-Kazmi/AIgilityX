@@ -109,11 +109,12 @@ const Header: React.FC = () => {
               <div className="main-menu__wrap navbar navbar-expand-lg p-0">
                 <nav className="main-menu collapse navbar-collapse">
                   <ul>
-                    <li className="menu-item-has-children active">
-                      <Link to="/" onClick={handleClick}>
+                    {/* <li>  */}
+                      {/* //className="menu-item-has-children active" */}
+                      {/* <Link to="/" onClick={handleClick}>
                         <span>Home</span>
-                      </Link>
-                      <ul className="submenu">
+                      </Link> */}
+                      {/* <ul className="submenu">
                         <li>
                           <Link to="/" onClick={handleClick}>
                             <span>Ai Agency</span>
@@ -129,17 +130,26 @@ const Header: React.FC = () => {
                             <span>Ai Chatbot</span>
                           </Link>
                         </li>
-                      </ul>
-                    </li>
+                      </ul> */}
+                    {/* </li> */}
 
                     <li>
+                      <Link
+                        to="/"
+                        onClick={(e) => handleNavScroll(e, "ecosystem")}
+                      >
+                        <span>Ecosystem</span>
+                      </Link>
+                    </li>
+                    {/* <li>
                       <Link
                         to="/"
                         onClick={(e) => handleNavScroll(e, "about-section")}
                       >
                         <span>About Us</span>
                       </Link>
-                    </li>
+                    </li> */}
+
 
                     {/* <li className="menu-item-has-children megamenu">
                       <Link to="#" onClick={handleClick}>
@@ -155,6 +165,46 @@ const Header: React.FC = () => {
                       >
                         <span>Services</span>
                       </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/"
+                        onClick={(e) => handleNavScroll(e, "expertise")}
+                      >
+                        <span>Expertise</span>
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link
+                        to="/"
+                        // onClick={(e) => handleNavScroll(e, "expertise")}
+                      >
+                        <span>Education</span>
+                      </Link>
+                    </li>
+
+                    <li className="menu-item-has-children active">
+                      <Link to="/" onClick={handleClick}>
+                        <span>Research Insights</span>
+                      </Link>
+                      <ul className="submenu">
+                        <li>
+                          <Link to="/" onClick={handleClick}>
+                            <span>Blogs</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/" onClick={handleClick}>
+                            <span>Whitepapers</span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link to="/" onClick={handleClick}>
+                            <span>Case Studies</span>
+                          </Link>
+                        </li>
+                      </ul>
                     </li>
 
                     {/* <li className="menu-item-has-children">
@@ -174,25 +224,10 @@ const Header: React.FC = () => {
                         </li>
                       </ul>
                     </li> */}
-                    <li>
-                      <Link
-                        to="/"
-                        onClick={(e) => handleNavScroll(e, "ecosystem")}
-                      >
-                        <span>Ecosystem</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/"
-                        onClick={(e) => handleNavScroll(e, "contact-section")}
-                      >
-                        <span>Contact Us</span>
-                      </Link>
-                    </li>
+                    
                     <li className="menu-item-has-children">
                       <Link to="#" onClick={handleClick}>
-                        <span>Global AI Initiatives</span>
+                        <span>Global Initiatives</span>
                       </Link>
                       <ul className="submenu">
                         <li>
@@ -212,10 +247,21 @@ const Header: React.FC = () => {
                         </li>
                       </ul>
                     </li>
+
+                    <li>
+                      <Link
+                        to="/"
+                        onClick={(e) => handleNavScroll(e, "contact-section")}
+                      >
+                        <span>Contact Us</span>
+                      </Link>
+                    </li>
+
                   </ul>
                 </nav>
               </div>
-
+           
+              
               {/* CTA Button */}
               <div className="header-btn">
                 <Link to="/contact" className="thm-btn" onClick={handleClick}>

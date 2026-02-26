@@ -174,7 +174,7 @@ const GlobalAIExpertiseSection: React.FC = () => {
   const cards = EXPERTISE_CONTENT[activeTab];
 
   return (
-    <section className="xb-ai-expertise service pt-135 pb-135" aria-labelledby="ai-expertise-heading">
+    <section id = "expertise" className="xb-ai-expertise service pt-135 pb-135" aria-labelledby="ai-expertise-heading">
       <div className="xb-ai-expertise__bg" aria-hidden />
       <div className="container position-relative">
         <div className="row justify-content-center">
