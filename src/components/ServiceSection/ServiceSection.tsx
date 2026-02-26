@@ -23,43 +23,41 @@ interface ServiceItem {
 const services: ServiceItem[] = [
   {
     id: 1,
-    title: "AIgilityX Sovereign AI Engine™",
-    desc: "SovereignX Engine reference designs, data residency patterns, trust boundaries and security controls for national and sectoral AI fabrics.",
+    title: "AI Strategy & Transformation",
+    desc: "Vision‑led strategies and actionable roadmaps to accelerate AI adoption, aligning your business objectives with cutting edge technology and agile operating models",
     img: img01,
     link: "/service-details",
   },
   {
     id: 2,
-    title: "The AIgilityX AI Factory™",
-    desc: "Your Sovereign Production Line for Intelligence - End-to-end AI operating models covering intake, experimentation, evaluation, deployment and monitoring.",
+    title: "AI Governance & Ethics",
+    desc: "Tailored frameworks for responsible AI, ensuring compliance, transparency and trust. Transform risk management into a competitive advantage with rigorous GRC.",
     img: img02,
     link: "/service-details",
   },
   {
     id: 3,
-    title: "AIgilityX Global AI Hub",
-    desc: "Partner network of solutions providers, system integrators, startups and industry experts who implement the blueprints under shared governance and standards.",
-    img: img03,
+    title: "AI Technology & Delivery",
+    desc: "End‑to‑end implementation guardian of production‑grade AI, intelligent automation and digital twins – turning proofs-of-concept into reliable, ROI‑delivering solutions.",
     link: "/service-details",
   },
   {
     id: 4,
-    title: "AIgilityX AI Executive Academy™",
-    desc: "Partner network of solutions providers, system integrators, startups and industry experts who implement the blueprints under shared governance and standards.",
+    title: "AI Model Testing & Assurance Lab",
+    desc: "Our independent AI assurance lab tests models, agents, and pipelines for safety, bias, resilience, and compliance, delivering trusted validation before rollout.",
     img: img04,
     link: "/service-details",
   },
   {
     id: 5,
-    title: "AIgilityX AI Infrastructure Services (AAaaS)",
-    desc: "Telecom-backed, integrated AI infrastructure enabling secure, sovereign-scale national AI operations.",
-    img: img05,
+    title: "Digital Twin Intelligence",
+    desc: "We provide a protected space to explore human-AI teaming, scenario simulations, and future governance models, enabling advanced leadership through deep psychometrics.",
     link: "/service-details",
   },
   {
     id: 6,
-    title: "AIgilityX Research & Innovation Labs™",
-    desc: "Sandboxes and labs co-partner with governments, telcos and universities to test GenAI, Agentic AI and domain-specific SLMs.",
+    title: "AI Skills & Leadership",
+    desc: "Future‑ready academies and upskilling programs that build AI‑literate leaders and teams. Develop the talent pipeline needed to make AI stick and scale sustainably.",
     img: img06,
     link: "/service-details",
   },
@@ -242,11 +240,11 @@ const ServiceSection: React.FC = () => {
               <div className="xb-item--item">
                 <div className="xb-item--head-item">
                   <h3 className="xb-item--title border-effect">
-                    <Link to={service.link}>{service.title}</Link>
+                    <Link to = "#">{service.title}</Link>
                   </h3>
-                  <Link className="xb-item--icon" to={service.link}>
+                  {/* <Link className="xb-item--icon" to={service.link}>
                     <img src={arrowIcon} alt="arrow" />
-                  </Link>
+                  </Link> */}
                 </div>
                 <p className="xb-item--content">{service.desc}</p>
                 <div className="service-card-img-effect">
@@ -262,7 +260,7 @@ const ServiceSection: React.FC = () => {
                 <h3 className="xb-item--title">
                   <Link to={service.link}>{service.title}</Link>
                 </h3>
-                <Link className="xb-icon" to="/service-details">
+                {/* <Link className="xb-icon" to="/service-details">
                   <svg
                     width="31"
                     height="31"
@@ -327,7 +325,7 @@ const ServiceSection: React.FC = () => {
                       fill="white"
                     />
                   </svg>
-                </Link>
+                </Link> */}
 
               </div>
             </div>

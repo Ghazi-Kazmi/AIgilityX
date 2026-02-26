@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "./ui/accordion";
+import "./FAQSection.css"; // Ensure you import the CSS file
 
 const faqs = [
   {
@@ -42,28 +43,28 @@ const faqs = [
 ];
 
 const FAQSection = () => (
-  <section id="faq" className="py-24 bg-secondary/20">
-    <div className="container max-w-3xl">
+  <section id="faq" className="faq-section">
+    <div className="faq-container">
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="font-display text-3xl sm:text-4xl font-bold text-center mb-12"
+        className="faq-heading"
       >
         Frequently Asked Questions
       </motion.h2>
 
-      <Accordion type="single" collapsible className="space-y-3">
+      <Accordion type="single" collapsible className="faq-accordion">
         {faqs.map((f, i) => (
           <AccordionItem
             key={i}
             value={`faq-${i}`}
-            className="bg-card border border-border rounded-xl px-6 data-[state=open]:border-primary transition-colors"
+            className="faq-item"
           >
-            <AccordionTrigger className="text-left font-display font-semibold hover:no-underline py-5">
+            <AccordionTrigger className="faq-trigger">
               {f.q}
             </AccordionTrigger>
-            <AccordionContent className="text-muted-foreground pb-5">
+            <AccordionContent className="faq-content">
               {f.a}
             </AccordionContent>
           </AccordionItem>

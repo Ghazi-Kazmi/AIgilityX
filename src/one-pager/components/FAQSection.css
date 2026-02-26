@@ -1,0 +1,89 @@
+/* Container & Layout */
+.faq-section {
+  padding: 6rem 0;
+  background-color: transparent; /* Inherits your app's dark background */
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.faq-container {
+  max-width: 48rem; /* matches max-w-3xl */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.faq-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #ffffff;
+}
+
+/* Accordion Wrapper */
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Matches space-y-3 */
+}
+
+/* Individual Accordion Items */
+.faq-item {
+  background-color: #0d121f; /* Dark card background */
+  border: 1px solid #1e293b; /* Subtle border */
+  border-radius: 0.75rem; /* rounded-xl */
+  padding: 0 1.5rem; /* px-6 */
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Optional: Highlight border when the accordion is open */
+.faq-item[data-state="open"] {
+  border-color: #3b82f6; 
+}
+
+/* Trigger / Question button */
+.faq-trigger {
+  width: 100%;
+  padding: 1.25rem 0; /* py-5 */
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+}
+
+.faq-trigger:hover {
+  text-decoration: none;
+}
+
+/* Content / Answer area */
+.faq-content {
+  padding-bottom: 1.25rem; /* pb-5 */
+  color: #94a3b8; /* Muted text color */
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* If your custom UI components output Radix UI structure, this handles the open/close animation for the answer body */
+.faq-content[data-state="open"] {
+  animation: slideDown 0.2s ease-out;
+}
+.faq-content[data-state="closed"] {
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from { height: 0; opacity: 0; }
+  to { height: var(--radix-accordion-content-height); opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { height: var(--radix-accordion-content-height); opacity: 1; }
+  to { height: 0; opacity: 0; }
+}

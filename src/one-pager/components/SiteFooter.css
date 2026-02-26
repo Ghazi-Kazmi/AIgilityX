@@ -1,0 +1,175 @@
+/* Footer Layout */
+.site-footer {
+  border-top: 1px solid #1e293b;
+  padding: 3.5rem 0;
+  background-color: transparent;
+  color: #ffffff;
+  font-family: inherit;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Create a 3-column layout on medium screens and larger */
+@media (min-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-heading {
+  font-size: 1.125rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+/* Contact List */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+/* Social Tags */
+.social-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.social-tag {
+  background-color: #1e293b;
+  color: #ffffff;
+  font-size: 0.875rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px; /* Pill shape */
+  border: 1px solid #334155;
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+
+.social-tag:hover {
+  border-color: #67e8f9; /* Cyan highlight on hover */
+}
+
+.social-hashtag {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 0.75rem;
+}
+/* Newsletter Form */
+.newsletter-text {
+  font-size: 0.875rem;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center; /* Ensures perfect vertical alignment */
+  width: 100%;
+}
+
+/* Added form selector for specificity to override global styles */
+.newsletter-form input.newsletter-input {
+  flex: 1;
+  height: 2.75rem; /* Force height to match the button */
+  box-sizing: border-box; /* Prevents padding from expanding the height */
+  background-color: #1e293b !important; /* Force dark background */
+  border: 1px solid #334155;
+  border-radius: 9999px !important; /* Force Pill shape */
+  padding: 0 1.25rem;
+  font-size: 0.875rem;
+  color: #ffffff;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none; /* Strip out default browser input styles */
+  appearance: none;
+  transition: border-color 0.2s ease;
+}
+
+.newsletter-form input.newsletter-input::placeholder {
+  color: #64748b;
+}
+
+.newsletter-form input.newsletter-input:focus {
+  border-color: #67e8f9;
+}
+
+.newsletter-button {
+  background-color: #67e8f9;
+  color: #020617; 
+  border: none;
+  border-radius: 50%; 
+  width: 2.75rem; /* Matched to input height */
+  height: 2.75rem; /* Matched to input height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  flex-shrink: 0; /* Prevents the button from squishing */
+}
+
+.newsletter-button:hover {
+  transform: translateY(-2px);
+}
+/* Footer Bottom Area */
+.footer-bottom {
+  border-top: 1px solid #1e293b;
+  padding-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.copyright-text {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
