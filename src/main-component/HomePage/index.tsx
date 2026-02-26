@@ -29,10 +29,10 @@ const HomePage: React.FC = () => {
               <main>
                 <HeroSection/>
                 <AboutSection/>
-                <ServiceSection/>
+                <ProjectSection/>
                 <GlobalAIExpertiseSection />
                 <FeatureSection/>
-                <ProjectSection/>
+                <ServiceSection/>
                 <IndustriesMarqueeSection/>
                 <IndustriesSection/>
                 {/* <TestimonialSection/>

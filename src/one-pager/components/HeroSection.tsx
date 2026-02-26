@@ -35,10 +35,10 @@ const HeroSection = () => (
         transition={{ delay: 0.3, duration: 0.7 }}
         className="glass-card rounded-full px-6 py-4 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-medium mb-10"
       >
-        <span>📍 Fellowship Onsite: 26 March</span>
-        <span>💻 Remote Build: 27–29 March</span>
-        <span>🗳️ Voting: 30 Mar – 1 Apr</span>
-        <span>🏆 Grand Finale: 2 April</span>
+        <span>📍 Fellowship Onsite: 3 April</span>
+        <span>💻 Remote Build: 4 & 5 April</span>
+        <span>🗳️ Evaluation:  5 April</span>
+        <span>🏆 Grand Finale: 6 April</span>
       </motion.div>
 
       <motion.div

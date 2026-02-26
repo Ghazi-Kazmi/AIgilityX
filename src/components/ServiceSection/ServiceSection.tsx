@@ -39,6 +39,7 @@ const services: ServiceItem[] = [
     id: 3,
     title: "AI Technology & Delivery",
     desc: "End‑to‑end implementation guardian of production‑grade AI, intelligent automation and digital twins – turning proofs-of-concept into reliable, ROI‑delivering solutions.",
+    img: img03,
     link: "/service-details",
   },
   {
@@ -52,6 +53,7 @@ const services: ServiceItem[] = [
     id: 5,
     title: "Digital Twin Intelligence",
     desc: "We provide a protected space to explore human-AI teaming, scenario simulations, and future governance models, enabling advanced leadership through deep psychometrics.",
+    img: img05,
     link: "/service-details",
   },
   {
@@ -72,17 +74,17 @@ const ServiceSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="ecosystem" className="service pt-135">
+    <section id="services-section" className="service pt-135">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-11">
             <div className="sec-title custom-sec-title xb-sec-padding text-center">
-              <span className="sub-title">AIgilityX™ Ecosystem</span>
+              <span className="sub-title">Featured Services</span>
               <h2 className="title">
                 {/* <span className="round-img"> */}
                   {/* <img src={gif} alt="gif" /> */}
                 {/* </span> */}
-                Explore Ecosystem Pillars Powering Sovereign, Scalable AI
+              Let's Co-Create Sovereign AI Solutions with AIgilityX Frameworks              
               </h2>
               {/* <div className="xb-heading-btn d-inline">
                 <Link className="thm-btn agency-btn" to="/service">
