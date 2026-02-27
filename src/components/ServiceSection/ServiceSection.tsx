@@ -84,7 +84,7 @@ const ServiceSection: React.FC = () => {
                 {/* <span className="round-img"> */}
                   {/* <img src={gif} alt="gif" /> */}
                 {/* </span> */}
-              Let's Co-Create Sovereign AI Solutions with AIgilityX Frameworks              
+              Let's Co-Create Sovereign AI Solutions              
               </h2>
               {/* <div className="xb-heading-btn d-inline">
                 <Link className="thm-btn agency-btn" to="/service">

@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 
 const FEATURE_LIST = [
   "Sovereign AI systems with full data control",
-  "Ethical & responsible AI by design",
-  "Global reach with local expertise",
-  "Zero vendor lock-in architecture",
-  "100+ Algile innovators network",
-  "Proven enterprise transformation",
+  "Ethical, Secure & responsible AI by design",
+  "Global architecture with regional execution (GCC + Global South)",
+  "Zero vendor lock-in multi-model AI strategy",
+  "AIgilityX ecosystem of platforms, academies, and AI factories",
+  "Proven enterprise and national transformation expertise",
 ];
 
 const CARDS = [
   {
-    title: "Global Reach",
-    subtitle: "Operations across 15+ countries",
+    title: "Global Sovereign Reach",
+    subtitle: "Operations and partnerships across multiple regions",
     icon: (
       <svg className="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="2"/>
@@ -24,8 +24,8 @@ const CARDS = [
     ),
   },
   {
-    title: "Human-Centered",
-    subtitle: "Technology that enhances humanity",
+    title: "Human-Centered AI",
+    subtitle: "Technology that augments human decision-making",
     icon: (
       <svg className="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <circle cx="18" cy="14" r="6" stroke="currentColor" strokeWidth="2"/>
@@ -36,8 +36,8 @@ const CARDS = [
     ),
   },
   {
-    title: "Policy Architects",
-    subtitle: "Drafted national AI regulations",
+    title: "Policy & Sovereign Architects",
+    subtitle: "Designing national-grade AI governance frameworks",
     icon: (
       <svg className="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <path d="M24 4L8 12v12c0 8 8 14 16 18 8-4 16-10 16-18V12L24 4z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
@@ -46,8 +46,8 @@ const CARDS = [
     ),
   },
   {
-    title: "Researchers",
-    subtitle: "Solving formidable AI challenges",
+    title: "AI Research & Innovation",
+    subtitle: "Advancing frontier AI and agentic capabilities",
     icon: (
       <svg className="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <path d="M24 8v32M16 16l8-8 8 8M16 40l8-8 8 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -57,8 +57,8 @@ const CARDS = [
     ),
   },
   {
-    title: "Solution Builders",
-    subtitle: "Launched successful AI products",
+    title: "AI Solution Builders",
+    subtitle: "Deploying production-grade AI platforms",
     icon: (
       <svg className="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <path d="M24 4l4 12h12l-10 8 4 12-10-8-10 8 4-12-10-8h12l4-12z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
@@ -67,8 +67,8 @@ const CARDS = [
     ),
   },
   {
-    title: "Transformation Leaders",
-    subtitle: "Certified in Algile methodologies",
+    title: "AIgile Transformation Leaders",
+    subtitle: "Driving enterprise and national AI readiness",
     icon: (
       <svg className="w-full h-full" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
         <circle cx="24" cy="24" r="18" stroke="currentColor" strokeWidth="2"/>
@@ -95,19 +95,31 @@ const AboutSection: React.FC = () => {
               About Us
             </span>
             <h2
-              className="mb-4"
+              className="mb-2"
               style={{
                 fontFamily: "var(--font-heading)",
-                fontSize: "clamp(28px, 4vw, 48px)",
+                fontSize: "clamp(22px, 4vw, 41px)",
                 fontWeight: 700,
                 lineHeight: 1.2,
                 letterSpacing: "-0.02em",
                 color: "var(--color-heading)",
               }}
             >
-              AlgilityX™ — The Global{" "}
-              <span style={{ color: "var(--color-primary)" }}>Algile Movement</span>
+              AIgilityX™ — Architecting the{" "}
+              <span style={{ color: "var(--color-primary)" }}>Sovereign AI & AIgile Future</span>
             </h2>
+            <p
+              className="mb-4"
+              style={{
+                fontFamily: "var(--font-body)",
+                fontSize: "18px",
+                fontStyle: "italic",
+                lineHeight: 1.6,
+                color: "var(--color-gray)",
+              }}
+            >
+              Sovereign Strategy → Agentic Execution → Workforce Enablement.
+            </p>
             <p
               className="mb-3"
               style={{
