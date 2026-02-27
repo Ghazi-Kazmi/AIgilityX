@@ -133,6 +133,7 @@ const AboutSection: React.FC = () => {
               competitiveness, and strategic innovation. We empower governments, telcos, and large
               enterprises with end-to-end AI transformation.
             </p>
+
             <p
               className="mb-4 mb-md-5"
               style={{
@@ -142,7 +143,7 @@ const AboutSection: React.FC = () => {
                 color: "var(--color-gray)",
               }}
             >
-              Through the unique symbiosis of AI, Agile principles, and human collaboration, we turn
+              Through the unique synergy of AI, Agile principles, and human collaboration, we turn
               bold visions into tangible market disruption — all powered by Ethical & Responsible AI.
             </p>
             <ul className="list-unstyled row g-3 mb-4 mb-md-5">
