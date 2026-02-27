@@ -184,7 +184,7 @@ const Header: React.FC = () => {
                       </Link>
                     </li>
 
-                    <li className="menu-item-has-children active">
+                    <li className="menu-item-has-children">
                       <Link to="/" onClick={handleClick}>
                         <span>Research Insights</span>
                       </Link>
