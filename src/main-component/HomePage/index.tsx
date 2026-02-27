@@ -17,7 +17,7 @@ import Scrollbar from "../../components/scrollbar/scrollbar";
 
 const HomePage: React.FC = () => {
   useEffect(() => {
-    document.title = "Home | AI Agency & Technology React Template";
+    document.title = "AIgilityX™: Sovereign AI & Digital twins & Transformation Solutions";
   }, []);
 
   return (
@@ -29,10 +29,10 @@ const HomePage: React.FC = () => {
               <main>
                 <HeroSection/>
                 <AboutSection/>
+                <ProjectSection/>
                 <ServiceSection/>
                 <GlobalAIExpertiseSection />
                 <FeatureSection/>
-                <ProjectSection/>
                 <IndustriesMarqueeSection/>
                 <IndustriesSection/>
                 {/* <TestimonialSection/>
