@@ -132,6 +132,15 @@ const Header: React.FC = () => {
                         </li>
                       </ul> */}
                     {/* </li> */}
+                    
+                    <li>
+                      <Link
+                        to="/"
+                        onClick={(e) => handleNavScroll(e, "about-section")}
+                      >
+                        <span>About Us</span>
+                      </Link>
+                    </li>
 
                     <li>
                       <Link
@@ -175,14 +184,7 @@ const Header: React.FC = () => {
                       </Link>
                     </li>
 
-                    <li>
-                      <Link
-                        to="/"
-                        // onClick={(e) => handleNavScroll(e, "expertise")}
-                      >
-                        <span>Education</span>
-                      </Link>
-                    </li>
+                    
 
                     <li className="menu-item-has-children">
                       <Link to="/" onClick={handleClick}>
