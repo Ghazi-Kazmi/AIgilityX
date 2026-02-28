@@ -1,7 +1,7 @@
 {
   "name": "AIgilityX",
   "version": "0.1.0",
-  "homepage": "https://AIgilityX-react.netlify.app",
+  "homepage": "/Home",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",

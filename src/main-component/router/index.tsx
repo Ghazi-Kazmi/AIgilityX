@@ -25,7 +25,7 @@ import OnePagerPage from "../../one-pager/OnePagerPage";
 const AllRoute: React.FC = () => {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/Home">
         <WowInit />
         <ScrollToTop />
 
