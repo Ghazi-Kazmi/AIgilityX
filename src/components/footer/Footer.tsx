@@ -6,6 +6,7 @@ import footerBg from "../../images/bg/footer-bg.png";
 import emailIcon from "../../images/icon/email-icon.svg";
 import locationIcon from "../../images/icon/location-icon.svg";
 import callIcon from "../../images/icon/call-icon.svg";
+import mapBg from "../../assets/footer/map.png";
 
 const Footer: React.FC = () => {
   const arrowIcon = (
@@ -119,15 +120,127 @@ const Footer: React.FC = () => {
         style={{ backgroundImage: `url(${footerBg})` }}
       >
         <div className="xb-footer-wrap">
-        {/* Footer Heading */}
-      <div className="xb-footer-heading">
-        <h1 className="title">AIgilityX</h1>
+        {/* Global Offices Section with Map Background */}
+        <div className="xb-footer-offices" style={{ 
+          backgroundImage: `url(${mapBg})`,
+          backgroundSize: '100% auto',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          borderRadius: '0',
+          marginBottom: '0',
+          position: 'relative'
+        }}>
+          {/* Dark overlay */}
+          <div style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.65)',
+            borderRadius: '0'
+          }}></div>
+          <div className="offices-grid" style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '40px',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '60px 40px',
+            position: 'relative',
+            zIndex: 1
+          }}>
+            {/* USA */}
+            <div className="office-item">
+              <h3 className="office-title" style={{
+                color: '#fff',
+                fontSize: '22px',
+                fontWeight: '700',
+                marginBottom: '20px'
+              }}>AIgilityX LLC, USA</h3>
+              <div className="office-info" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginTop: '3px', flexShrink: 0 }}>
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#0d97c9"/>
+                  </svg>
+                  <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '15px', lineHeight: '1.5' }}>Richmond, TX, 77407, USA</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+                    <path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57-.1-.04-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1z" fill="#0d97c9"/>
+                  </svg>
+                  <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '15px' }}>+1-713-925-634-7</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#0d97c9"/>
+                  </svg>
+                  <a href="mailto:info@aigilityx.com" style={{ color: '#0d97c9', fontSize: '15px', textDecoration: 'none' }}>info@aigilityx.com</a>
+                </div>
+              </div>
+            </div>
 
-        <a className="mail" href="mailto:AIgilityX@domain.com">
-          <img src={emailIcon} alt="email" />
-          info@aigilityX.com
-        </a>
-      </div>
+            {/* UAE */}
+            <div className="office-item">
+              <h3 className="office-title" style={{
+                color: '#fff',
+                fontSize: '22px',
+                fontWeight: '700',
+                marginBottom: '20px'
+              }}>AIgilityX Arabia LLC FZ</h3>
+              <div className="office-info" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginTop: '3px', flexShrink: 0 }}>
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#0d97c9"/>
+                  </svg>
+                  <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '15px', lineHeight: '1.5' }}>Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E.</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+                    <path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57-.1-.04-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1z" fill="#0d97c9"/>
+                  </svg>
+                  <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '15px' }}>+971-506-680-767</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#0d97c9"/>
+                  </svg>
+                  <a href="mailto:info@aigilityx.com" style={{ color: '#0d97c9', fontSize: '15px', textDecoration: 'none' }}>info@aigilityx.com</a>
+                </div>
+              </div>
+            </div>
+
+            {/* Asia */}
+            <div className="office-item">
+              <h3 className="office-title" style={{
+                color: '#fff',
+                fontSize: '22px',
+                fontWeight: '700',
+                marginBottom: '20px'
+              }}>AIgilityX Asia</h3>
+              <div className="office-info" style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginTop: '3px', flexShrink: 0 }}>
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#0d97c9"/>
+                  </svg>
+                  <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '15px', lineHeight: '1.5' }}>Coco Buisness Center, I-10 Markaz, Islamabad, Pakistan</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+                    <path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57-.1-.04-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1z" fill="#0d97c9"/>
+                  </svg>
+                  <span style={{ color: 'rgba(255,255,255,0.8)', fontSize: '15px' }}>+92-320-855-400-0</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#0d97c9"/>
+                  </svg>
+                  <a href="mailto:info@aigilityx.com" style={{ color: '#0d97c9', fontSize: '15px', textDecoration: 'none' }}>info@aigilityx.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
 
         {/* Footer Navigation */}
@@ -241,6 +354,21 @@ const Footer: React.FC = () => {
           .footer-sticky-reveal,
           .content-reveal-wrapper {
             transition: transform 0.1s ease-out;
+          }
+        }
+
+        /* Responsive styles for offices grid */
+        @media (max-width: 992px) {
+          .offices-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .offices-grid {
+            grid-template-columns: 1fr !important;
+            gap: 30px !important;
+            padding: 40px 20px !important;
           }
         }
       `}</style>

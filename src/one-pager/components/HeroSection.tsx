@@ -19,11 +19,9 @@ const HeroSection = () => (
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <p className="text-primary font-semibold text-lg mb-4 tracking-widest uppercase">AIgilityX™ presents</p>
         <h1 className="text-gradient font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-4">
-          Sovereign Agentic AI
-          <br />
-          Hackathon 2026
+         Pakistan's First Sovereign Agentic AI Hackathon 2026
         </h1>
-        <p className="text-primary text-xl sm:text-2xl font-medium mb-2">Build Local. Run Sovereign. Scale Globally.</p>
+        <p className="text-primary text-xl sm:text-2xl font-medium mb-2">Build Local. Run Sovereign. Scale Global.</p>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
           Pakistan's Architecture‑Driven Agentic AI Hackathon — activating the next generation of Sovereign AI leaders.
         </p>
@@ -35,10 +33,10 @@ const HeroSection = () => (
         transition={{ delay: 0.3, duration: 0.7 }}
         className="glass-card rounded-full px-6 py-4 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm font-medium mb-10"
       >
-        <span>📍 Fellowship Onsite: 26 March</span>
-        <span>💻 Remote Build: 27–29 March</span>
-        <span>🗳️ Voting: 30 Mar – 1 Apr</span>
-        <span>🏆 Grand Finale: 2 April</span>
+        <span>📍 Fellowship Onsite: 3 April</span>
+        <span>💻 Remote Build: 4 & 5 April</span>
+        <span>🗳️ Evaluation:  5 April</span>
+        <span>🏆 Grand Finale: 6 April</span>
       </motion.div>
 
       <motion.div

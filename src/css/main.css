@@ -3295,7 +3295,7 @@ Drop Down menu end
         font-family: var(--font-body); }
       .main-menu > ul > li.menu-item-has-children > a span::after {
         content: '\f107';
-        font-weight: 500;
+        font-weight: 400;
         color: #fff;
         margin: 1px 0 0 3px;
         -webkit-transition: 0.3s;
@@ -3403,7 +3403,7 @@ Drop Down menu end
   top: 0px;
   right: 15px;
   content: "\f0d7";
-  font-size: 16px;
+  font-size: 12px;
   font-family: 'Font Awesome 6 Pro';
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;

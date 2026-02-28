@@ -154,13 +154,12 @@ const ProjectSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="services-section" className="project bg_img pt-135 pb-150">
+    <section id="ecosystem" className="project bg_img pt-135 pb-150">
       <div className="container">
         <div className="sec-title custom-sec-title xb-sec-padding text-center">
-          <span className="sub-title">Featured Services</span>
+          <span className="sub-title">AIgilityX™ Ecosystem Pillars</span>
           <h2 className="title">
-            Let's Co-Create Sovereign AI Solutions with AIgilityX Frameworks
-          </h2>
+          Explore AIgilityX Sovereign AI Ecosystem </h2>
         </div>
       </div>
 
