@@ -19,11 +19,9 @@ const HeroSection = () => (
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <p className="text-primary font-semibold text-lg mb-4 tracking-widest uppercase">AIgilityX™ presents</p>
         <h1 className="text-gradient font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-tight mb-4">
-          Sovereign Agentic AI
-          <br />
-          Hackathon 2026
+         Pakistan's First Sovereign Agentic AI Hackathon 2026
         </h1>
-        <p className="text-primary text-xl sm:text-2xl font-medium mb-2">Build Local. Run Sovereign. Scale Globally.</p>
+        <p className="text-primary text-xl sm:text-2xl font-medium mb-2">Build Local. Run Sovereign. Scale Global.</p>
         <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8">
           Pakistan's Architecture‑Driven Agentic AI Hackathon — activating the next generation of Sovereign AI leaders.
         </p>
