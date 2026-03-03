@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Compass, Bot, Users, Globe } from "lucide-react";
 
 // Use existing project hero image as visual placeholder
 import heroVisual from "../../assets/hero/hero.png";
@@ -9,12 +10,14 @@ interface CardData {
   pillar: string;
   title: string;
   bullets: string[];
+  icon: React.ElementType;
 }
 
 const cards: CardData[] = [
   {
     pillar: "Sovereign Strategy",
     title: "AI Readiness & Strategy",
+    icon: Compass,
     bullets: [
       "Roadmap your AI journey with the AIgile Mindset™ & 5E Framework",
       "Align executive initiatives with national priorities & governance",
@@ -23,6 +26,7 @@ const cards: CardData[] = [
   {
     pillar: "Agentic Execution",
     title: "Agentic AI Factory™",
+    icon: Bot,
     bullets: [
       "Industrialize sovereign-ready AI agents with governed lifecycles",
       "Deploy production-grade guardrails from pilot to trusted execution",
@@ -30,7 +34,8 @@ const cards: CardData[] = [
   },
   {
     pillar: "Workforce Enablement",
-    title: "AIgile Leadership & Workforce",
+    title: "AIgile Leadership Workforce",
+    icon: Users,
     bullets: [
       "Build AI-ready leaders via the AI Leadership Fellowship",
       "Develop one million AI-Ready Agile Leaders across sectors",
@@ -39,6 +44,7 @@ const cards: CardData[] = [
   {
     pillar: "Enterprise & National Scale",
     title: "Sovereign AI Ecosystems",
+    icon: Globe,
     bullets: [
       "Operationalize trusted, governed AI aligned with national priorities",
       "Strengthen sovereignty & resilience through scalable AI",
@@ -137,14 +143,26 @@ const HeroSection: React.FC = () => {
         {/* ================= CARDS ================= */}
         <div className="aigx-cards">
           {cards.map((card, index) => (
-            <div className="aigx-card" key={index}>
-              <div className="aigx-pillar">{card.pillar}</div>
-              <h3>{card.title}</h3>
-              <ul className="aigx-card-bullets">
-                {card.bullets.map((bullet, i) => (
-                  <li key={i}>{bullet}</li>
-                ))}
-              </ul>
+            <div className="aigx-card-wrapper" key={index}>
+              <div className="aigx-card-flip">
+                {/* FRONT - Icon & Title Only */}
+                <div className="aigx-card-front">
+                  <div className="aigx-card-front-content">
+                    <card.icon className="aigx-card-icon" size={36} strokeWidth={1.5} />
+                    <div className="aigx-pillar">{card.pillar}</div>
+                    <h3>{card.title}</h3>
+                  </div>
+                </div>
+                {/* BACK - Title + Bullets */}
+                <div className="aigx-card-back">
+                  <h3 className="aigx-card-back-title">{card.title}</h3>
+                  <ul className="aigx-card-bullets">
+                    {card.bullets.map((bullet, i) => (
+                      <li key={i}>{bullet}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           ))}
         </div>
