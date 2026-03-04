@@ -14,7 +14,7 @@
 
 <br />
 
-[![Website](https://img.shields.io/badge/Website-AIgilityX-2c32fe?style=flat-square&logo=google-chrome&logoColor=white)](https://aigilityx-react.netlify.app)
+[![Website](https://img.shields.io/badge/Website-AIgilityX-2c32fe?style=flat-square&logo=google-chrome&logoColor=white)](https://aigilityx.com/Home)
 &nbsp;&nbsp;
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-AIgilityX-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/company/aigilityx/)
 &nbsp;&nbsp;
