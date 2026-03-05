@@ -27,7 +27,8 @@ const CriteriaSection = () => (
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-card border border-border rounded-2xl p-6 text-center hover:border-primary transition-colors"
+            // 🚀 CHANGED: Removed borders, added border-0, added hover lift and cyan glow
+            className="bg-card border-0 rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
           >
             <p className="text-4xl font-display font-black text-primary mb-2">{c.pct}</p>
             <h3 className="font-display text-lg font-bold mb-1">{c.label}</h3>

@@ -23,7 +23,8 @@ const ApplySection = () => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="bg-card/60 border border-border rounded-2xl p-8 mb-8 text-center"
+        // 🚀 CHANGED: Removed borders, added hover glow to the top banner
+        className="bg-card/60 border-0 rounded-2xl p-8 mb-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
       >
         <h3 className="font-display text-2xl font-bold mb-3">Application Process</h3>
         <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -37,7 +38,8 @@ const ApplySection = () => (
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-card border border-border rounded-2xl p-8"
+          // 🚀 CHANGED: Removed borders, added hover glow to the left card
+          className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
         >
           <Users className="text-primary mb-4" size={40} />
           <h3 className="font-display text-2xl font-bold mb-6">Who Should Apply</h3>
@@ -58,7 +60,8 @@ const ApplySection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="bg-card border border-border rounded-2xl p-8"
+          // 🚀 CHANGED: Removed borders, added hover glow to the right card
+          className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
         >
           <Rocket className="text-primary mb-4" size={40} />
           <h3 className="font-display text-2xl font-bold mb-6">What You Gain</h3>
