@@ -45,10 +45,11 @@ const ImperativeSection = () => (
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeUp}
-            // Cards still have NO border and keep the cyan hover glow
-            className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
+            className="op-card cursor-pointer"
           >
-            <c.icon className="text-primary mb-4" size={40} />
+            <div className="op-card-icon">
+              <c.icon className="text-primary" size={28} />
+            </div>
             <h3 className="font-display text-xl font-bold mb-4">{c.title}</h3>
             <ul className="space-y-3">
               {c.items.map((item) => (
@@ -66,8 +67,7 @@ const ImperativeSection = () => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        // 🚀 CHANGED: Added a subtle cyan border that brightens on hover!
-        className="text-center text-lg font-medium mt-12 py-5 px-8 rounded-full bg-secondary/50 border border-solid border-[#0d97c9] border-opacity-30 transition-all duration-300 hover:border-opacity-100 hover:shadow-[0_0_30px_#0d97c9]"
+        className="text-center text-lg font-medium mt-12 op-cta-banner"
       >
         <span className="accent-glow">Sovereign Agentic AI is the new leadership layer.</span>{" "}
         AIgilityX™ 2026 builds architects — not just coders.

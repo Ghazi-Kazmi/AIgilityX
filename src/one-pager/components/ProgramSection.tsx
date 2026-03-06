@@ -9,12 +9,13 @@ const ProgramSection = () => (
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          // 🚀 CHANGED: Removed borders, added border-0, added hover lift and cyan glow
-          className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9]"
+          className="op-card cursor-pointer"
         >
-          <Award className="text-primary mb-4" size={40} />
+          <div className="op-card-icon">
+            <Award className="text-primary" size={24} />
+          </div>
           <h3 className="font-display text-2xl font-bold mb-2">Young Future AI Leader Program</h3>
-          <span className="inline-block bg-primary/15 text-primary px-3 py-1 rounded-full text-xs font-semibold border border-primary/30 mb-4">
+          <span className="op-badge mb-4">
             Certified by AIgilityX USA
           </span>
           <p className="text-muted-foreground">
@@ -28,10 +29,11 @@ const ProgramSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          // 🚀 CHANGED: Removed borders, added border-0, added hover lift and cyan glow
-          className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9]"
+          className="op-card cursor-pointer"
         >
-          <Globe className="text-primary mb-4" size={40} />
+          <div className="op-card-icon">
+            <Globe className="text-primary" size={24} />
+          </div>
           <h3 className="font-display text-2xl font-bold mb-4">Why Global Opportunities — Especially GCC — Are Knocking</h3>
           <p className="text-muted-foreground mb-4">GCC nations invest billions in national AI strategies, digital sovereignty, and smart cities. Demand soars for:</p>
           <ul className="space-y-2">

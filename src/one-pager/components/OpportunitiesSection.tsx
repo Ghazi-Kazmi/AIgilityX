@@ -49,10 +49,11 @@ const OpportunitiesSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            // 🚀 CHANGED: Removed borders, added border-0, added hover lift and cyan glow
-            className="bg-card border-0 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
+            className="op-card op-card-compact cursor-pointer"
           >
-            <o.icon className="text-primary mb-3" size={32} />
+            <div className="op-card-icon">
+              <o.icon className="text-primary" size={20} />
+            </div>
             <h3 className="font-display text-lg font-bold mb-2">{o.title}</h3>
             <p className="text-sm text-muted-foreground">{o.desc}</p>
           </motion.div>
