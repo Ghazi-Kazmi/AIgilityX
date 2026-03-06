@@ -45,7 +45,8 @@ const MentorsSection = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="bg-card border border-border rounded-2xl p-8 hover:border-primary hover:shadow-card-glow transition-all"
+            // 🚀 CHANGED: Removed borders, added border-0, added hover lift and cyan glow
+            className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
           >
             <r.icon className="text-primary mb-4" size={40} />
             <h3 className="font-display text-2xl font-bold mb-3">{r.title}</h3>
@@ -61,7 +62,8 @@ const MentorsSection = () => (
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="mt-10 bg-card/60 border border-border rounded-2xl p-8"
+        // 🚀 CHANGED: Removed borders from the bottom banner, added hover glow
+        className="mt-10 bg-card/60 border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
       >
         <div className="flex items-center gap-2 mb-4">
           <BookOpen className="text-primary" size={24} />
@@ -69,7 +71,8 @@ const MentorsSection = () => (
         </div>
         <div className="flex flex-wrap gap-3">
           {expertise.map((e) => (
-            <span key={e} className="bg-secondary text-foreground px-4 py-2 rounded-full text-sm font-medium border border-border">
+            // 🚀 CHANGED: Removed the white border from the pill badges for a cleaner look
+            <span key={e} className="bg-secondary text-foreground px-4 py-2 rounded-full text-sm font-medium border-0">
               {e}
             </span>
           ))}
