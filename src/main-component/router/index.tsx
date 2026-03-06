@@ -27,7 +27,7 @@ const AllRoute: React.FC = () => {
     <div className="App">
        {/* ✅ BrowserRouter with basename for correct routing in production,
        Temporarily set to "/Home" for development to match the homepage route, adjust as needed for deployment */}
-      <BrowserRouter basename="/Home">
+      <BrowserRouter basename="/home">
         <WowInit />
         <ScrollToTop />
 

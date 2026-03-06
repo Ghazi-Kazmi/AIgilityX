@@ -11,7 +11,7 @@
   top: auto !important;
   left: auto !important;
   right: auto !important;
-  margin-top: 1rem;
+  margin-top: 0;
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
@@ -21,7 +21,7 @@
   display: block;
 }
 .op-hackathon-layout .header-area:first-child {
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 /* Content below main header: no extra top padding (main header is in flow) */
@@ -39,6 +39,21 @@
   border-bottom: 1px solid hsl(var(--border) / 0.5);
   background: hsl(var(--card));
   box-shadow: 0 1px 0 0 hsl(var(--border) / 0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hidden state - initially hidden */
+.op-sub-header--hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Visible state - shown when scrolled past main header */
+.op-sub-header--visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Space so hero text is not hidden under sticky sub-header when scrolling */
