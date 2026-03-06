@@ -66,8 +66,8 @@ const TimelineSection = () => (
                 show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
               }}
             >
-              {/* Circle - UPDATED: text-primary changed to text-white */}
-              <div className="w-12 h-12 rounded-full bg-secondary border border-primary flex items-center justify-center font-display text-xl font-extrabold text-white mb-3 shadow-lg">
+              {/* Circle */}
+              <div className="op-timeline-circle mb-3">
                 {step.id}
               </div>
               {/* Label */}
@@ -101,8 +101,8 @@ const TimelineSection = () => (
             transition={{ delay: i * 0.1, duration: 0.5 }}
             className="flex gap-5 items-start"
           >
-            {/* Circle - UPDATED: text-primary changed to text-white */}
-            <div className="shrink-0 w-12 h-12 rounded-full bg-secondary border border-primary flex items-center justify-center font-display text-xl font-extrabold text-white">
+            {/* Circle */}
+            <div className="shrink-0 op-timeline-circle">
               {p.num}
             </div>
             <div>
