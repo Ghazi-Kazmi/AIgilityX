@@ -9,7 +9,8 @@ const ProgramSection = () => (
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-card border border-border rounded-2xl p-8 hover:border-primary hover:shadow-card-glow transition-all"
+          // 🚀 CHANGED: Removed borders, added border-0, added hover lift and cyan glow
+          className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9]"
         >
           <Award className="text-primary mb-4" size={40} />
           <h3 className="font-display text-2xl font-bold mb-2">Young Future AI Leader Program</h3>
@@ -27,7 +28,8 @@ const ProgramSection = () => (
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="bg-card border border-border rounded-2xl p-8 hover:border-primary hover:shadow-card-glow transition-all"
+          // 🚀 CHANGED: Removed borders, added border-0, added hover lift and cyan glow
+          className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9]"
         >
           <Globe className="text-primary mb-4" size={40} />
           <h3 className="font-display text-2xl font-bold mb-4">Why Global Opportunities — Especially GCC — Are Knocking</h3>

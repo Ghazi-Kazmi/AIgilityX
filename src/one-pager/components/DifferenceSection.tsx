@@ -11,8 +11,13 @@ const pillars = [
 const DifferenceSection = () => (
   <section className="py-24">
     <div className="container">
-      <div className="bg-card/60 border border-border rounded-3xl p-8 sm:p-12" style={{ backgroundImage: "radial-gradient(circle at 70% 30%, hsl(186 95% 73% / 0.04) 0%, transparent 50%)" }}>
-        <span className="inline-block bg-primary/15 text-primary px-4 py-1.5 rounded-full text-sm font-semibold border border-primary/30 mb-6">
+      {/* 🚀 CHANGED: Swapped the border classes for border-0 to completely remove the white line */}
+      <div 
+        className="bg-card/60 rounded-3xl p-8 sm:p-12 transition-all duration-500 hover:bg-[#0d97c9]/10 border-0 hover:shadow-[0_0_40px_#0d97c9]" 
+        style={{ backgroundImage: "radial-gradient(circle at 70% 30%, hsl(186 95% 73% / 0.04) 0%, transparent 50%)" }}
+      >
+        {/* 🚀 CHANGED: Also applied border-0 here for total consistency */}
+        <span className="inline-block bg-primary/15 text-primary px-4 py-1.5 rounded-full text-sm font-semibold border-0 mb-6">
           ✦ ARCHITECTURE FIRST
         </span>
         <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">Why This Hackathon Is Different</h2>
@@ -28,7 +33,8 @@ const DifferenceSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex flex-col items-center text-center gap-3"
+              // Small inner cards keep their lift and glow!
+              className="flex flex-col items-center justify-center text-center gap-4 bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
             >
               <p.icon className="text-primary" size={48} />
               <span className="font-bold">{p.label}</span>
