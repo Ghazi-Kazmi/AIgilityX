@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
@@ -14,11 +14,29 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get the main header element (capsule header)
+      const mainHeader = document.querySelector('.op-hackathon-layout .header-area');
+      if (mainHeader) {
+        const headerRect = mainHeader.getBoundingClientRect();
+        // Show navbar when scrolled past the main header
+        setVisible(headerRect.bottom <= 0);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check initial state
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="op-sub-header">
+    <nav className={`op-sub-header ${visible ? 'op-sub-header--visible' : 'op-sub-header--hidden'}`}>
       <div className="container flex items-center justify-between h-12 min-h-[3rem]">
-        <a href="#" className="font-display text-xl font-extrabold text-primary tracking-wide">
+        <a href="/home" className="font-display text-xl font-extrabold text-primary tracking-wide">
           AIgilityX™
         </a>
 
