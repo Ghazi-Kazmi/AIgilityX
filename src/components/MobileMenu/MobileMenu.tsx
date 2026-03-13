@@ -47,7 +47,7 @@ const menus: MenuItem[] = [
     link: "#",
     submenu: [
       { id: 61, title: "Sovereign AI Hackathon", link: "/hackathon" },
-      { id: 62, title: "Global Sovereign AI Summit", link: "#" },
+      { id: 62, title: "Global Sovereign AI Summit", link: "/summit" },
       { id: 63, title: "AI Leaders Fellowship", link: "#" },
     ],
   },

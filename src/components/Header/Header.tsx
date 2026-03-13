@@ -238,7 +238,7 @@ const Header: React.FC = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link to="#" onClick={handleClick}>
+                          <Link to="/summit" onClick={handleClick}>
                             <span>Global Sovereign AI Summit</span>
                           </Link>
                         </li>
