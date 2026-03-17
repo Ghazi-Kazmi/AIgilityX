@@ -3,62 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap');
 
 /* Hackathon only: main header as a normal block – no absolute/fixed, no negative margins */
-.op-hackathon-layout .header-area,
-.op-hackathon-layout .xb-header-area-sticky,
-.op-hackathon-layout .xb-header,
-.op-hackathon-layout .xb-header-fixed {
-  position: relative !important;
-  top: auto !important;
-  left: auto !important;
-  right: auto !important;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: 0;
-  z-index: 1 !important;
-}
 .op-hackathon-layout .header-area {
   display: block;
 }
-.op-hackathon-layout .header-area:first-child {
-  margin-top: 0;
-}
-
-/* Content below main header: no extra top padding (main header is in flow) */
-.op-below-header {
-  padding-top: 0;
-}
-
-
-/* Sub-header: in flow below main header; sticks to top when scrolled past */
-.op-sub-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  width: 100%;
-  border-bottom: 1px solid hsl(var(--border) / 0.5);
-  background: hsl(var(--card));
-  box-shadow: 0 1px 0 0 hsl(var(--border) / 0.3);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Hidden state - initially hidden */
-.op-sub-header--hidden {
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* Visible state - shown when scrolled past main header */
-.op-sub-header--visible {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Space so hero text is not hidden under sticky sub-header when scrolling */
+.op-below-header,
 .op-content-below-sub {
-  padding-top: 3rem;
+  padding-top: 0;
 }
 
 .op-root {

@@ -1,27 +1,47 @@
-import React, { MouseEvent, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { MouseEvent, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/AigilityX-Asset-2-scaled.png";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import {
+  HeaderActionKey,
+  HeaderCTA,
+  HeaderMenuItem,
+  getHeaderConfig,
+  getHeaderVariant,
+} from "./headerNavigation";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  onSummitInvitation?: () => void;
+}
+
+const HOME_PATH = "/";
+
+const Header: React.FC<HeaderProps> = ({ onSummitInvitation }) => {
   const [mobileActive, setMobileActive] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-  const handleSubmit = (e: React.FormEvent) => e.preventDefault();
+  const headerVariant = getHeaderVariant(location.pathname);
+  const { links, cta } = getHeaderConfig(headerVariant);
+
+  const normalizedPath = location.pathname.replace(/\/+$/, "") || HOME_PATH;
+
+  const handleSubmit = (event: React.FormEvent) => event.preventDefault();
+  const handleScrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
   const toggleMobileMenu = () => setMobileActive((prev) => !prev);
   const closeMobileMenu = () => setMobileActive(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (!element) return;
+    if (!element) {
+      return;
+    }
 
-    const headerOffsetDesktop = 10;
-    const headerOffsetMobile = 120;
+    const desktopOffset = headerVariant === "home" ? 10 : 120;
+    const mobileOffset = 120;
     const isDesktop = window.innerWidth >= 992;
-    const headerOffset = isDesktop ? headerOffsetDesktop : headerOffsetMobile;
-
-    const elementPosition =
-      element.getBoundingClientRect().top + window.pageYOffset;
+    const headerOffset = isDesktop ? desktopOffset : mobileOffset;
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
     const offsetPosition = elementPosition - headerOffset;
 
     window.scrollTo({
@@ -30,248 +50,231 @@ const Header: React.FC = () => {
     });
   };
 
-  const handleNavScroll = (e: MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    e.preventDefault();
-    scrollToSection(sectionId);
+  useEffect(() => {
+    if (!location.hash) {
+      return;
+    }
+
+    const sectionId = location.hash.replace("#", "");
+    const timeoutId = window.setTimeout(() => {
+      scrollToSection(sectionId);
+    }, 150);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [headerVariant, location.hash, location.pathname]);
+
+  const handleAction = (actionKey?: HeaderActionKey) => {
+    closeMobileMenu();
+
+    if (actionKey === "summitInvitation") {
+      if (headerVariant === "summit" && onSummitInvitation) {
+        onSummitInvitation();
+        return;
+      }
+
+      navigate("/summit#cta");
+      return;
+    }
+
+    handleScrollTop();
   };
 
-  // Inline styles for logo container
+  const handleRouteLinkClick = (event: MouseEvent<HTMLAnchorElement>, path?: string) => {
+    closeMobileMenu();
+
+    if (!path || path === "#") {
+      event.preventDefault();
+      return;
+    }
+
+    if (normalizedPath === path) {
+      event.preventDefault();
+      handleScrollTop();
+    }
+  };
+
+  const handleSectionLinkClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    item: HeaderMenuItem | HeaderCTA,
+  ) => {
+    const path = item.path || normalizedPath;
+    const sectionId = item.sectionId;
+
+    if (!sectionId) {
+      return;
+    }
+
+    closeMobileMenu();
+
+    if (normalizedPath === path) {
+      event.preventDefault();
+      scrollToSection(sectionId);
+      return;
+    }
+
+    event.preventDefault();
+    navigate({
+      pathname: path,
+      hash: `#${sectionId}`,
+    });
+  };
+
+  const renderDesktopLink = (item: HeaderMenuItem) => {
+    if (item.submenu) {
+      return (
+        <li key={item.key} className="menu-item-has-children">
+          <Link to={item.path || "#"} onClick={(event) => handleRouteLinkClick(event, item.path)}>
+            <span>{item.label}</span>
+          </Link>
+          <ul className="submenu">
+            {item.submenu.map((subItem) => (
+              <li key={subItem.key}>
+                {subItem.type === "action" ? (
+                  <button
+                    type="button"
+                    className="header-submenu-button"
+                    onClick={() => handleAction(subItem.actionKey)}
+                  >
+                    <span>{subItem.label}</span>
+                  </button>
+                ) : subItem.type === "section" ? (
+                  <Link
+                    to={subItem.path || HOME_PATH}
+                    onClick={(event) => handleSectionLinkClick(event, subItem)}
+                  >
+                    <span>{subItem.label}</span>
+                  </Link>
+                ) : (
+                  <Link
+                    to={subItem.path || HOME_PATH}
+                    onClick={(event) => handleRouteLinkClick(event, subItem.path)}
+                  >
+                    <span>{subItem.label}</span>
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </li>
+      );
+    }
+
+    if (item.type === "action") {
+      return (
+        <li key={item.key}>
+          <button type="button" className="header-menu-button" onClick={() => handleAction(item.actionKey)}>
+            <span>{item.label}</span>
+          </button>
+        </li>
+      );
+    }
+
+    if (item.type === "section") {
+      return (
+        <li key={item.key}>
+          <Link to={item.path || HOME_PATH} onClick={(event) => handleSectionLinkClick(event, item)}>
+            <span>{item.label}</span>
+          </Link>
+        </li>
+      );
+    }
+
+    return (
+      <li key={item.key}>
+        <Link to={item.path || HOME_PATH} onClick={(event) => handleRouteLinkClick(event, item.path)}>
+          <span>{item.label}</span>
+        </Link>
+      </li>
+    );
+  };
+
+  const renderCTA = () => {
+    if (cta.type === "action") {
+      return (
+        <button type="button" className="thm-btn header-cta-button" onClick={() => handleAction(cta.actionKey)}>
+          {cta.label}
+        </button>
+      );
+    }
+
+    if (cta.type === "section") {
+      return (
+        <Link to={cta.path || HOME_PATH} className="thm-btn" onClick={(event) => handleSectionLinkClick(event, cta)}>
+          {cta.label}
+        </Link>
+      );
+    }
+
+    return (
+      <Link to={cta.path || HOME_PATH} className="thm-btn" onClick={(event) => handleRouteLinkClick(event, cta.path)}>
+        {cta.label}
+      </Link>
+    );
+  };
+
   const logoContainerStyle: React.CSSProperties = {
-    height: '80px',
-    width: 'auto',
-    maxWidth: '200px',
-    minWidth: '120px',
-    display: 'flex',
-    alignItems: 'center',
-    overflow: 'hidden',
+    height: "80px",
+    width: "auto",
+    maxWidth: "200px",
+    minWidth: "120px",
+    display: "flex",
+    alignItems: "center",
+    overflow: "hidden",
     flexShrink: 0,
   };
 
   const logoLinkStyle: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    height: '100%',
-    width: '100%',
+    display: "flex",
+    alignItems: "center",
+    height: "100%",
+    width: "100%",
   };
 
   const logoImageStyle: React.CSSProperties = {
-    height: '50px',
-    width: 'auto',
-    maxWidth: '100%',
-    objectFit: 'contain',
-    transition: 'opacity 0.3s ease',
+    height: "50px",
+    width: "auto",
+    maxWidth: "100%",
+    objectFit: "contain",
+    transition: "opacity 0.3s ease",
   };
 
   const mobileLogoContainerStyle: React.CSSProperties = {
-    padding: '1rem 0',
-    textAlign: 'center',
-    maxHeight: '100px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: "1rem 0",
+    textAlign: "center",
+    maxHeight: "100px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   };
 
   const mobileLogoImageStyle: React.CSSProperties = {
-    height: '45px',
-    width: 'auto',
-    maxWidth: '180px',
-    objectFit: 'contain',
-    margin: '0 auto',
+    height: "45px",
+    width: "auto",
+    maxWidth: "180px",
+    objectFit: "contain",
+    margin: "0 auto",
   };
 
-
   return (
-    <header
-      id="xb-header-area"
-      className="header-area header-style--one is-sticky"
-    >
+    <header id="xb-header-area" className={`header-area header-style--one is-sticky header-variant-${headerVariant}`}>
       <div className="xb-header xb-sticky-stt xb-header-area-sticky xb-header-fixed">
         <div className="header-container-wrapper">
           <div className="header-glass-container">
             <div className="header__wrap ul_li_between">
-              {/* Logo */}
               <div className="xb-header-logo" style={logoContainerStyle}>
-                <Link 
-                  to="/" 
-                  className="logo1" 
-                  onClick={handleClick}
-                  style={logoLinkStyle}
-                >
-                  <img
-                    src={logo}
-                    alt="AigilityX Logo"
-                    style={logoImageStyle}
-                  />
+                <Link to={HOME_PATH} className="logo1" onClick={handleScrollTop} style={logoLinkStyle}>
+                  <img src={logo} alt="AigilityX Logo" style={logoImageStyle} />
                 </Link>
               </div>
 
-              {/* Desktop Menu */}
               <div className="main-menu__wrap navbar navbar-expand-lg p-0">
                 <nav className="main-menu collapse navbar-collapse">
-                  <ul>
-                    {/* <li>  */}
-                      {/* //className="menu-item-has-children active" */}
-                      {/* <Link to="/" onClick={handleClick}>
-                        <span>Home</span>
-                      </Link> */}
-                      {/* <ul className="submenu">
-                        <li>
-                          <Link to="/" onClick={handleClick}>
-                            <span>Ai Agency</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/" onClick={handleClick}>
-                            <span>Ai Marketing</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/" onClick={handleClick}>
-                            <span>Ai Chatbot</span>
-                          </Link>
-                        </li>
-                      </ul> */}
-                    {/* </li> */}
-                    
-                    <li>
-                      <Link
-                        to="/"
-                        onClick={(e) => handleNavScroll(e, "about-section")}
-                      >
-                        <span>About Us</span>
-                      </Link>
-                    </li>
-
-                    <li>
-                      <Link
-                        to="/"
-                        onClick={(e) => handleNavScroll(e, "ecosystem")}
-                      >
-                        <span>Ecosystem</span>
-                      </Link>
-                    </li>
-                    {/* <li>
-                      <Link
-                        to="/"
-                        onClick={(e) => handleNavScroll(e, "about-section")}
-                      >
-                        <span>About Us</span>
-                      </Link>
-                    </li> */}
-
-
-                    {/* <li className="menu-item-has-children megamenu">
-                      <Link to="#" onClick={handleClick}>
-                        <span>Pages</span>
-                      </Link>
-                      <MegaMenu1 />
-                    </li> */}
-
-                    <li>
-                      <Link
-                        to="/"
-                        onClick={(e) => handleNavScroll(e, "services-section")}
-                      >
-                        <span>Services</span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/"
-                        onClick={(e) => handleNavScroll(e, "expertise")}
-                      >
-                        <span>Expertise</span>
-                      </Link>
-                    </li>
-
-                    
-
-                    <li className="menu-item-has-children">
-                      <Link to="/" onClick={handleClick}>
-                        <span>Research Insights</span>
-                      </Link>
-                      <ul className="submenu">
-                        <li>
-                          <Link to="/" onClick={handleClick}>
-                            <span>Blogs</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/" onClick={handleClick}>
-                            <span>Whitepapers</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/" onClick={handleClick}>
-                            <span>Case Studies</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </li>
-
-                    {/* <li className="menu-item-has-children">
-                      <Link to="/blog" onClick={handleClick}>
-                        <span>Blog</span>
-                      </Link>
-                      <ul className="submenu">
-                        <li>
-                          <Link to="/blog" onClick={handleClick}>
-                            <span>Blog</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/blog-details" onClick={handleClick}>
-                            <span>Blog Details</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </li> */}
-                    
-                    <li className="menu-item-has-children">
-                      <Link to="#" onClick={handleClick}>
-                        <span>Global Initiatives</span>
-                      </Link>
-                      <ul className="submenu">
-                        <li>
-                          <Link to="/hackathon" onClick={handleClick}>
-                            <span>Sovereign AI Hackathon</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#" onClick={handleClick}>
-                            <span>Global Sovereign AI Summit</span>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="#" onClick={handleClick}>
-                            <span>AI Leaders Fellowship</span>
-                          </Link>
-                        </li>
-                      </ul>
-                    </li>
-
-                    <li>
-                      <Link
-                        to="/"
-                        onClick={(e) => handleNavScroll(e, "contact-section")}
-                      >
-                        <span>Contact Us</span>
-                      </Link>
-                    </li>
-
-                  </ul>
+                  <ul>{links.map(renderDesktopLink)}</ul>
                 </nav>
               </div>
-           
-              
-              {/* CTA Button */}
-              <div className="header-btn">
-                <Link to="/contact" className="thm-btn" onClick={handleClick}>
-                  Global AI Hub
-                </Link>
-              </div>
 
-              {/* Mobile Toggle */}
+              <div className="header-btn">{renderCTA()}</div>
+
               <div className="header-bar-mobile side-menu d-lg-none">
                 <button
                   className="xb-nav-mobile"
@@ -286,7 +289,6 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         <div className="xb-header-wrap">
           <div className={`xb-header-menu ${mobileActive ? "active" : ""}`}>
             <div className="xb-header-menu-scroll">
@@ -299,47 +301,38 @@ const Header: React.FC = () => {
               </button>
 
               <div className="xb-logo-mobile xb-hide-xl" style={mobileLogoContainerStyle}>
-                <Link to="/" rel="home" onClick={closeMobileMenu}>
-                  <img 
-                    src={logo} 
-                    alt="AigilityX Logo"
-                    style={mobileLogoImageStyle}
-                  />
+                <Link to={HOME_PATH} rel="home" onClick={closeMobileMenu}>
+                  <img src={logo} alt="AigilityX Logo" style={mobileLogoImageStyle} />
                 </Link>
               </div>
 
               <div className="xb-header-mobile-search xb-hide-xl">
                 <form role="search" onSubmit={handleSubmit}>
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    name="s"
-                    className="search-field"
-                    aria-label="Search"
-                  />
-                  <button 
-                    className="search-submit" 
-                    type="submit"
-                    aria-label="Submit search"
-                  >
+                  <input type="text" placeholder="Search..." name="s" className="search-field" aria-label="Search" />
+                  <button className="search-submit" type="submit" aria-label="Submit search">
                     <i className="far fa-search"></i>
                   </button>
                 </form>
               </div>
 
               <nav className="xb-header-nav">
-                <MobileMenu />
+                <MobileMenu
+                  items={links}
+                  onSectionClick={handleSectionLinkClick}
+                  onRouteClick={(event, item) => handleRouteLinkClick(event, item.path)}
+                  onActionClick={(item) => handleAction(item.actionKey)}
+                />
               </nav>
             </div>
           </div>
-          <div 
+          <div
             className="xb-header-menu-backdrop"
             onClick={closeMobileMenu}
             role="button"
             tabIndex={0}
             aria-label="Close mobile menu"
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
+            onKeyDown={(event) => {
+              if (event.key === "Enter" || event.key === " ") {
                 closeMobileMenu();
               }
             }}
@@ -347,9 +340,7 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Glassmorphism CSS Styles */}
       <style>{`
-        /* Header Base - Transparent */
         .header-area {
           position: absolute;
           top: 0;
@@ -364,14 +355,12 @@ const Header: React.FC = () => {
           background: transparent;
         }
 
-        /* Container Wrapper - Centers the glass container */
         .header-container-wrapper {
           max-width: 1400px;
           margin: 0 auto;
           padding: 0 40px;
         }
 
-        /* Glassmorphism Container */
         .header-glass-container {
           background: rgba(255, 255, 255, 0.08);
           backdrop-filter: blur(20px);
@@ -388,7 +377,6 @@ const Header: React.FC = () => {
           border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
-        /* Logo Container Styles */
         .xb-header-logo {
           position: relative;
           z-index: 10;
@@ -398,7 +386,6 @@ const Header: React.FC = () => {
           opacity: 0.85;
         }
 
-        /* Header Wrapper */
         .header__wrap {
           display: flex;
           align-items: center;
@@ -407,7 +394,6 @@ const Header: React.FC = () => {
           gap: 20px;
         }
 
-        /* Desktop Menu Styling */
         .main-menu__wrap {
           flex: 1;
           display: flex;
@@ -428,7 +414,8 @@ const Header: React.FC = () => {
           position: relative;
         }
 
-        .main-menu ul li a {
+        .main-menu ul li a,
+        .header-menu-button {
           color: rgba(255, 255, 255, 0.95);
           font-weight: 500;
           padding: 10px 20px;
@@ -438,14 +425,24 @@ const Header: React.FC = () => {
           align-items: center;
           gap: 6px;
           position: relative;
+          background: transparent;
+          border: 0;
         }
-        
-        /* Ensure arrows don't break to new line */
+
+        .header-submenu-button {
+          width: 100%;
+          color: rgba(255, 255, 255, 0.95);
+          font-weight: 500;
+          padding: 10px 20px;
+          background: transparent;
+          border: 0;
+          text-align: left;
+        }
+
         .main-menu ul li.menu-item-has-children > a span {
           display: inline !important;
         }
 
-        /* Fix dropdown arrows - override main.css absolute positioning */
         .header-style--one .main-menu > ul > li.menu-item-has-children > a span::after {
           position: relative !important;
           margin: 0 0 0 8px !important;
@@ -467,25 +464,25 @@ const Header: React.FC = () => {
           border: 1px solid rgba(255, 255, 255, 0.3) !important;
           vertical-align: middle !important;
         }
-        
-        .header-style--one .main-menu > ul > li:hover > a > span::after, 
+
+        .header-style--one .main-menu > ul > li:hover > a > span::after,
         .header-style--one .main-menu > ul > li.active > a > span::after {
           background: rgba(255, 255, 255, 0.35) !important;
           color: #ffffff !important;
         }
-        
-        /* Remove any pseudo-element positioning from parent */
+
         .main-menu ul li.menu-item-has-children > a {
           position: relative !important;
         }
 
         .main-menu ul li a:hover,
-        .main-menu ul li.active > a {
+        .main-menu ul li.active > a,
+        .header-menu-button:hover,
+        .header-submenu-button:hover {
           background: rgba(255, 255, 255, 0.15);
           color: #ffffff;
         }
 
-        /* Header Button */
         .header-btn {
           flex-shrink: 0;
         }
@@ -507,21 +504,47 @@ const Header: React.FC = () => {
           transform: translateY(-2px);
         }
 
-        /* Mobile Menu Toggle */
+        .header-variant-summit .header-btn .thm-btn {
+          background: var(--color-primary);
+          color: var(--color-secondary);
+          border-color: var(--color-primary);
+          box-shadow: none;
+        }
+
+        .header-variant-summit .header-btn .thm-btn:hover {
+          background: var(--color-primary);
+          color: var(--color-secondary);
+          border-color: var(--color-primary);
+          opacity: 0.92;
+        }
+
+        .header-cta-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
         .header-bar-mobile {
           flex-shrink: 0;
         }
 
-        /* Hamburger button styles are now in mobile-menu-fix.css for better mobile responsiveness */
-
-        /* Sticky Header - flush to top to avoid empty space above */
         .xb-header-area-sticky {
           position: fixed;
           top: 0;
           left: 0;
           right: 0;
           z-index: 999;
+          padding: 20px 0 0 !important;
+          background: transparent !important;
+          box-shadow: none !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
           animation: slideDown 0.3s ease;
+        }
+
+        #xb-header-area .xb-header-area-sticky.xb-header-fixed {
+          background: transparent !important;
+          box-shadow: none !important;
         }
 
         .xb-header-area-sticky .header-glass-container {
@@ -547,7 +570,6 @@ const Header: React.FC = () => {
           opacity: 1;
         }
 
-        /* Mobile Menu Backdrop */
         .xb-header-menu-backdrop {
           position: fixed;
           top: 0;
@@ -566,19 +588,16 @@ const Header: React.FC = () => {
           visibility: visible;
         }
 
-        /* Mobile Menu Glass Effect */
         .xb-header-menu {
           background: rgba(255, 255, 255, 0.95);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
         }
 
-        /* Close Button Hover */
         .xb-menu-close:hover {
           color: #000 !important;
         }
 
-        /* Responsive Styles */
         @media (max-width: 1200px) {
           .header-container-wrapper {
             max-width: 100%;
@@ -589,7 +608,8 @@ const Header: React.FC = () => {
             padding: 8px 25px;
           }
 
-          .main-menu ul li a {
+          .main-menu ul li a,
+          .header-menu-button {
             padding: 10px 15px;
             font-size: 14px;
           }
@@ -632,6 +652,10 @@ const Header: React.FC = () => {
         @media (max-width: 767px) {
           .header-area {
             padding: 15px 0;
+          }
+
+          .xb-header-area-sticky {
+            padding-top: 15px !important;
           }
 
           .header-container-wrapper {
@@ -684,7 +708,6 @@ const Header: React.FC = () => {
           }
         }
 
-        /* Performance Optimizations */
         .xb-header,
         .xb-header-logo img,
         .xb-header-menu,

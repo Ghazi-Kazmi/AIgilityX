@@ -34,7 +34,7 @@ const ProgramSection = () => (
           <div className="op-card-icon">
             <Globe className="text-primary" size={24} />
           </div>
-          <h3 className="font-display text-2xl font-bold mb-4">Why Global Opportunities — Especially GCC — Are Knocking</h3>
+          <h3 className="font-display text-2xl font-bold mb-4">Why Global Opportunities — GCC — Are Knocking</h3>
           <p className="text-muted-foreground mb-4">GCC nations invest billions in national AI strategies, digital sovereignty, and smart cities. Demand soars for:</p>
           <ul className="space-y-2">
             {["Sovereign AI Architects", "Agentic Workflow Designers", "AI Governance Specialists", "Enterprise AI Transformation Leads"].map((item) => (

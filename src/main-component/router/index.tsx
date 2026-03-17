@@ -20,6 +20,7 @@ import BlogDetails from "../BlogDetails/BlogDetails";
 import ContactPage from "../ContactPage/ContactPage";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import OnePagerPage from "../../one-pager/OnePagerPage";
+import SummitPage from "../SummitPage";
 
 // ✅ Router Component
 const AllRoute: React.FC = () => {
@@ -49,6 +50,7 @@ const AllRoute: React.FC = () => {
           <Route path="/blog-details" element={<BlogDetails />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/hackathon" element={<OnePagerPage />} />
+          <Route path="/summit" element={<SummitPage />} />
           {/* ✅ Error Page */}
           <Route path="/404" element={<ErrorPage />} />
           <Route path="*" element={<ErrorPage />} />
