@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../../css/summit.css";
 
-import SummitNavbar from "../../components/summit/SummitNavbar";
+import Header from "../../components/Header/Header";
 import SummitInvitationModal from "../../components/summit/SummitInvitationModal";
 import SummitHeroSection from "../../components/summit/SummitHeroSection";
 import SummitUrgencySection from "../../components/summit/SummitUrgencySection";
@@ -42,7 +42,7 @@ const SummitPage: React.FC = () => {
 
   return (
     <div className="summit-page">
-      <SummitNavbar onRequestInvitation={() => setModalOpen(true)} />
+      <Header onSummitInvitation={() => setModalOpen(true)} />
       <SummitHeroSection />
       <SummitUrgencySection />
       <SummitSpeakersSection />

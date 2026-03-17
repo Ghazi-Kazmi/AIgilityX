@@ -2,7 +2,6 @@ import React from "react";
 import "../css/one-pager.css";
 
 import Header from "../components/Header/Header";
-import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import ImperativeSection from "./components/ImperativeSection";
 import DifferenceSection from "./components/DifferenceSection";
@@ -22,7 +21,6 @@ const OnePagerPage: React.FC = () => (
   <div className="op-hackathon-layout">
     <Header />
     <div className="op-root op-below-header min-h-screen bg-background text-foreground">
-      <Navbar />
       <div className="op-content-below-sub">
         <HeroSection />
         <ImperativeSection />

@@ -327,10 +327,11 @@
 .summit-hero-content {
   position: relative;
   z-index: 10;
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 7rem 1.5rem 8rem;
-  text-align: center;
+  padding: 11.5rem 40px 8rem;
+  text-align: left;
 }
 
 .summit-hero-badge {
@@ -481,17 +482,29 @@
 
 .summit-hero-wave {
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   right: 0;
+  line-height: 0;
+  pointer-events: none;
 }
 
 .summit-hero-wave svg {
-  width: 100%;
+  width: calc(100% + 2px);
+  margin-left: -1px;
   display: block;
 }
 
+@media (max-width: 1200px) {
+  .summit-hero-content { padding-left: 30px; padding-right: 30px; }
+}
+
+@media (max-width: 991px) {
+  .summit-hero-content { padding-left: 20px; padding-right: 20px; }
+}
+
 @media (min-width: 768px) {
+  .summit-hero-content { padding-top: 12.5rem; }
   .summit-hero h1 { font-size: 4rem; }
   .summit-hero h1 .algilityx { font-size: 5.5rem; }
   .summit-hero h1 .primary { font-size: 5rem; }
@@ -508,9 +521,14 @@
 }
 
 @media (min-width: 1024px) {
+  .summit-hero-content { padding-top: 13rem; }
   .summit-hero h1 .algilityx { font-size: 7rem; }
   .summit-hero h1 .primary { font-size: 6.5rem; }
   .summit-hero h1 .faded, .summit-hero h1 .white-inline { font-size: 4.5rem; }
+}
+
+@media (max-width: 767px) {
+  .summit-hero-content { padding: 11rem 15px 8rem; }
 }
 
 /* =========================================================

@@ -36,7 +36,8 @@
 }
 
 .responsivemenu li a,
-.responsivemenu li p{
+.responsivemenu li p,
+.responsivemenu li .mobile-menu-button{
     display: block;
     padding: 13px 35px;
     font-size: 16px;
@@ -47,6 +48,12 @@
     cursor: pointer;
     font-family: var(--font-body);
     padding-bottom: 10px;
+}
+.responsivemenu li .mobile-menu-button{
+    width: 100%;
+    border: 0;
+    background: transparent;
+    text-align: left;
 }
 .responsivemenu li p{
     position: relative;
@@ -133,7 +140,7 @@
         left: -240px;
         width: 240px;
     }
-    .responsivemenu li a, .responsivemenu li p {
+    .responsivemenu li a, .responsivemenu li p, .responsivemenu li .mobile-menu-button {
         font-size: 14px;
         padding: 13px 25px;
     }

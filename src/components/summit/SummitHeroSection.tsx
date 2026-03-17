@@ -27,7 +27,7 @@ const SummitHeroSection: React.FC = () => {
   const metaItems = [
     { icon: <MapPin size={16} strokeWidth={2.5} />, text: "Serena Hotel, Islamabad" },
     { icon: <CalendarDays size={16} strokeWidth={2.5} />, text: "18 June 2026 - Thursday" },
-    { icon: <Users size={16} strokeWidth={2.5} />, text: "100–150 National Leaders" },
+    { icon: <Users size={16} strokeWidth={2.5} />, text: "100-150 National Leaders" },
   ];
 
   const countdownUnits = [
@@ -48,16 +48,17 @@ const SummitHeroSection: React.FC = () => {
           <div><span className="primary">Sovereign AI</span></div>
           <div style={{ marginTop: "0" }}>
             <span className="faded">Summit 2026</span>
-            <span className="white-inline"> — Pakistan</span>
+            <span className="white-inline"> &mdash; Pakistan</span>
           </div>
         </h1>
 
         <p className="summit-hero-subtitle">
-          From Strategy to Scale: Building Pakistan's Sovereign AI Ecosystem
+          From Strategy to Scale: Building Pakistan&apos;s Sovereign AI Ecosystem
         </p>
 
         <p className="summit-hero-desc">
-          A national leadership dialogue to architect Pakistan's AI sovereignty, security, innovation capacity, social impact, and digital independence.
+          A national leadership dialogue to architect Pakistan&apos;s AI sovereignty, security, innovation
+          capacity, social impact, and digital independence.
         </p>
 
         <div className="summit-hero-meta">
@@ -85,7 +86,7 @@ const SummitHeroSection: React.FC = () => {
 
         <div className="summit-hero-cta">
           <a href="#cta" className="summit-btn-primary" style={{ fontSize: "0.875rem", borderRadius: "2rem" }}>
-            Reserve My Seat →
+            Reserve My Seat &rarr;
           </a>
           <a href="#partners" className="summit-btn-outline-light" style={{ fontSize: "0.875rem", borderRadius: "2rem" }}>
             Become a Strategic Partner
