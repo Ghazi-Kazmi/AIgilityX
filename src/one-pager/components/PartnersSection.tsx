@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Crown, BookOpen, GraduationCap, Handshake, Star } from "lucide-react";
+import { Crown, BookOpen, GraduationCap, Handshake } from "lucide-react";
 
 const partnerTypes = [
   {
@@ -43,33 +43,31 @@ const partnerTypes = [
   },
 ];
 
-const PartnersSection = () => (
+interface PartnersSectionProps {
+  onPartnerClick: () => void;
+}
+
+const PartnersSection = ({ onPartnerClick }: PartnersSectionProps) => (
   <section id="partners" className="py-24 bg-secondary/20">
     <div className="container mx-auto px-4 max-w-6xl">
-      
-      {/* Header Area */}
       <div className="text-center mb-16">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          {/* Partnership Pill Badge */}
           <span className="inline-block px-4 py-1.5 rounded-full border border-primary/50 text-primary text-xs font-bold tracking-widest uppercase mb-4">
             Partnership
           </span>
-          
-          {/* Main Heading */}
+
           <h2 className="font-display text-4xl md:text-5xl font-extrabold text-white mb-4">
             Sponsors & <span className="text-primary">Partners</span>
           </h2>
-          
-          {/* Gradient Underline */}
+
           <div className="h-1.5 w-32 bg-gradient-to-r from-[#38bdf8] to-[#fbbf24] mx-auto rounded-full mb-8" />
         </motion.div>
       </div>
 
-      {/* Cards Grid */}
       <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
         {partnerTypes.map((partner, i) => {
           const Icon = partner.icon;
@@ -80,24 +78,19 @@ const PartnersSection = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.5 }}
-              // 🚀 CHANGED: Applied standard bg-card, border-0, and our bright cyan hover glow!
               className="bg-card border-0 rounded-2xl p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] cursor-pointer"
             >
-              {/* Icon Box */}
               <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 ${partner.iconBg}`}>
                 <Icon className={partner.iconColor} size={28} />
               </div>
-              
-              {/* Card Title */}
+
               <h3 className="font-display text-2xl font-bold text-white mb-6">
                 {partner.name}
               </h3>
-              
-              {/* Benefits List */}
+
               <ul className="space-y-4">
                 {partner.benefits.map((benefit, index) => (
                   <li key={index} className="flex items-center text-muted-foreground font-medium text-sm lg:text-base">
-                    {/* Colored Dot */}
                     <span className={`w-2 h-2 rounded-full mr-3 shrink-0 ${partner.bulletColor}`} />
                     {benefit}
                   </li>
@@ -108,23 +101,20 @@ const PartnersSection = () => (
         })}
       </div>
 
-      {/* Action Buttons */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.6 }}
         className="flex flex-wrap justify-center gap-4"
       >
-        <a href="#partner-with-us" className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-lg shadow-glow hover:-translate-y-1 transition-transform flex items-center gap-2">
+        <button
+          onClick={onPartnerClick}
+          className="bg-gradient-primary text-primary-foreground px-8 py-4 rounded-full font-bold text-lg shadow-glow hover:-translate-y-1 transition-transform flex items-center gap-2 border-none cursor-pointer"
+        >
           <Handshake size={20} /> Partner With Us
-        </a>
-        {/* 🚀 CHANGED: Removed border, fixed typo in href, and added the hover cyan glow! */}
-        <a href="#sponsor-future" className="bg-card border-0 text-foreground px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_#0d97c9] flex items-center gap-2">
-          <Star size={20} /> Sponsor the Future
-        </a>
+        </button>
       </motion.div>
-
     </div>
   </section>
 );
